@@ -23,15 +23,29 @@
 </head>
 
 <fmt:setBundle basename="locale" var="loc"/>
-<fmt:message bundle="${loc}" key="local.button.sign_in" var="sign_in"/>
+<fmt:message bundle="${loc}" key="local.button.Login" var="Login"/>
+
 
 <body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Employee Portal</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/applicationstatus">Application Status</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="container" style="margin-top:40px">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <strong>${sign_in_continue}</strong>
+                    <strong>${sign_in_continue}Please sign into Employee Portal </strong>
                 </div>
                 <div class="panel-body">
                     <form role="form" action="/login" method="post" autocomplete="off">
@@ -67,7 +81,7 @@
                                 </div>
                             </c:if>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-lg btn-primary btn-block" value="${sign_in}">
+                                <input type="submit" class="btn btn-lg btn-primary btn-block" value="${Login}">
                             </div>
                         </div>
                     </form>

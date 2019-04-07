@@ -23,7 +23,7 @@
 </head>
 
 <fmt:setBundle basename="locale" var="loc"/>
-<fmt:message bundle="${loc}" key="local.label.get_status" var="get_status"/>
+<fmt:message bundle="${loc}" key="local.button.Submit" var="Submit"/>
 
 <body>
 
@@ -47,7 +47,7 @@
         <div class="col-sm-6 col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <strong>${sign_in_continue}</strong>
+                    <strong>${sign_in_continue}Check Status of an Application</strong>
                 </div>
                  
                 <div class="panel-body">
@@ -74,25 +74,20 @@
                                       <span class="input-group-addon">
                                           <i class="glyphicon glyphicon-user"></i>
                                       </span>
-                                    <input class="form-control" placeholder="link" value="" name="link" type="text" autofocus required autocomplete="off" maxlength="255" >
+                                    <input class="form-control" placeholder="Mortage ID" value="" name="link" type="text" autofocus required autocomplete="off" maxlength="255" >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                       <span class="input-group-addon">
-                                          <i class="glyphicon glyphicon-lock"></i>
+                                          <i class="glyphicon glyphicon-link"></i>
                                       </span>
-                                    <input class="form-control" placeholder="Application Number" name="applicationNumber" type="text" value="" autocomplete="off" required maxlength="255">
+                                    <input class="form-control" placeholder="Mortage Link" name="applicationNumber" type="text" value="" autocomplete="off" required maxlength="255">
                                 </div>
                             </div>
-                                 <div class="form-group">
-                                <div class="input-group">
-                                   <input type="checkbox" name="tnC" value="terms" id="chkTerms"> I agree to terms and conditions<br>
-                                </div>
-                            </div>
-	                           
+                            	                           
                             <div class="form-group">
-                                <input type="submit" class="btn btn-lg btn-primary btn-block" id ="btnStatus" value="${get_status}" disabled="disabled">
+                                <input type="submit" class="btn btn-lg btn-primary btn-block" id ="btnGetStatus" value="${Submit}">
                             </div>
                         </div>
                     </form>
@@ -101,12 +96,6 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-$("#chkTerms").click(function(){   
-    $("#btnStatus").attr('disabled', !this.checked)
-});
-</script>
 
 </body>
 </html>
