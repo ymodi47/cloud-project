@@ -3,17 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<link rel="stylesheet" type="text/css"
-	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-
-<style type="text/css">
+<style>
     <%@include file="css/bootstrap.min.css"%>
-    <%@include file="css/bootstrap-formhelpers.min.css"%>
 </style>
+
 <script>
     <%@include file="js/jquery.min.js"%>
     <%@include file="js/bootstrap.min.js"%>
-    <%@include file="js/bootstrap-formhelpers.min.js"%>
+    <%@include file="js/custom.js"%>
 </script>
 
 <html>

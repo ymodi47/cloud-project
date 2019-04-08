@@ -33,7 +33,7 @@ public class ApplicationStatusController {
 	@RequestMapping(value = "/applicationstatus", method = RequestMethod.POST)
 	public ModelAndView processLogin(ModelAndView modelAndView, @Valid MortgageApplicant mortgageApplicant, BindingResult bindingResult,
 			HttpServletRequest request) {
-		MortgageApplicant applicant = mortgageApplicantService.getApplicantByApplicationID(mortgageApplicant.getApplicationNumber());
+		MortgageApplicant applicant = mortgageApplicantService.getApplicantByMortgageID(mortgageApplicant.getMortgageID());
 		if (applicant == null) {
 			modelAndView.addObject("errorMessage", "applicant does not exists");
 		} else

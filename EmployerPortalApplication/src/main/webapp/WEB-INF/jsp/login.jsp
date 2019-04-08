@@ -3,17 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<link rel="stylesheet" type="text/css"
-	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-
-<style type="text/css">
+<style>
     <%@include file="css/bootstrap.min.css"%>
-    <%@include file="css/bootstrap-formhelpers.min.css"%>
 </style>
+
 <script>
     <%@include file="js/jquery.min.js"%>
     <%@include file="js/bootstrap.min.js"%>
-    <%@include file="js/bootstrap-formhelpers.min.js"%>
+    <%@include file="js/custom.js"%>
 </script>
 
 <html>
@@ -27,27 +24,18 @@
 
 
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Employee Portal</a>
-    </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/applicationstatus">Application Status</a></li>
-      </ul>
-    </div>
-  </div>
+<nav class="navbar navbar-dark bg-primary">
+      <a class="navbar-brand" href="/login">Employee Portal</a>
+     <button class="btn btn-outline-success" href="/applicationstatus" type="button">Application Status</button>
 </nav>
+
 <div class="container" style="margin-top:40px">
     <div class="row">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <strong>${sign_in_continue}Please sign into Employee Portal </strong>
-                </div>
-                <div class="panel-body">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <h5 class="card-header">${sign_in_continue}Please check your status</h5>
+                <div class="card-body">
                     <form role="form" action="/login" method="post" autocomplete="off">
                         <div class="col-sm-12 col-md-10 col-md-offset-1 ">
                             <div class="form-group">

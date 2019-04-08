@@ -3,17 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<style type="text/css">
-    <%@include file="css/chat.css"%>
+<style>
     <%@include file="css/bootstrap.min.css"%>
-    <%@include file="css/bootstrap-formhelpers.min.css"%>
 </style>
+
 <script>
     <%@include file="js/jquery.min.js"%>
-    <%@include file="js/avatar.js"%>
     <%@include file="js/bootstrap.min.js"%>
-    <%@include file="js/bootstrap-formhelpers.min.js"%>
+    <%@include file="js/custom.js"%>
 </script>
+
 
 <html>
 <head>
@@ -66,17 +65,17 @@
                     </div>
                     
                     <div class="form-group">
-                    <select name="MortgageValue" id="MortgValue" class="form-control" >
+                    <select name="MortgageValue" id="MortgValue" class="form-control" value='${param.MSID}'>
                     <option value="">MSID</option>
-                    <option value="ms1">ms1</option>
-                    <option value="ms2">ms2</option>
-                    <option value="ms3">ms3</option>
-                    <option value="ms4">ms4</option>
+                    <option value="0001">ms1</option>
+                    <option value="0002">ms2</option>
+                    <option value="0003">ms3</option>
+                    <option value="0004">ms4</option>
                   </select>
                 </div>
                     
                     <div class="form-group">
-                    <input type="text" name="EmployerName" id="EmpName" class="form-control" placeholder="Employer Name" required maxlength="255" value='${param.EmployerName}'>
+                    <input type="text" name="EmployerName" id="EmpName" class="form-control" placeholder="Employer Name" required maxlength="255" value='${param.employerName}'>
                 </div>
                		 <div class="form-group">
                 <input type="password" name="pswd" id="pswd" class="form-control checkpw" placeholder="Password" required maxlength="15" value='${param.pswd}'>

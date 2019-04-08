@@ -10,5 +10,5 @@ import com.macs.teamtwo.brokerportalapplication.domain.MortgageApplicant;
 @Repository
 public interface MortgageApplicantRepository extends JpaRepository<MortgageApplicant, Integer>{
 
-	MortgageApplicant getApplicantByApplicationNumber(String applicationNumber);
+	MortgageApplicant getApplicantByMortgageId(int MortgageID);
 }

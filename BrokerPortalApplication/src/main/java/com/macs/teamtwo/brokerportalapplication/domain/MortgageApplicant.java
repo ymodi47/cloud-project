@@ -11,37 +11,28 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table (name = "mortageapplicantdetails",uniqueConstraints=@UniqueConstraint(columnNames="email"))
+@Table (name = "mortageapplicantdetails")
 public class MortgageApplicant {
 
 	@Id
-	@Column(name="applicant_id")
+	@Column(name="MortgageId")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int applicantID;
+	private int MortgageID;
 	
-	@Column(name="first_name")
-	private String firstName;
+	@Column(name="Applicant_name")
+	private String ApplicantName;
 	
-	@Column(name="last_name")
-	private String lastName;
+	@Column(name="Mortgage_Value")
+	private double MortgageValue;
+	
+	@Column(name="MSID")
+	private int MSID;
 	
 	@Column(name="employer_name")
 	private String employerName;
 	
-	@Column(name="address")
-	private String address;
-	
-	@Column(name="salary")
-	private String salary;
-	
-	@Column(name="phone_number")
-	private double phoneNumber;
-	
-	@Column(name="application_number")
-	private String applicationNumber;
-	
-	@Column(name="email",unique=true)
-	private String email;
+	@Column(name="pswd")
+	private String pswd;
 	
 	@Column(name="application_status")
 	private String applicationStatus;
@@ -50,106 +41,94 @@ public class MortgageApplicant {
 	public MortgageApplicant(){
 		
 	}
-	
-	public MortgageApplicant(String firstName, String lastName,String employerName,String address,String salary,int phoneNumber,String applicationNumber,String email,String applicationStatus) {
+
+
+	public MortgageApplicant(int mortgageID, String applicantName, double mortgageValue, int mSID, String employerName,
+			String pswd, String applicationStatus) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.employerName=employerName;
-		this.address=address;
-		this.salary=salary;
-		this.phoneNumber=phoneNumber;
-		this.applicationNumber=applicationNumber;
-		this.applicationStatus=applicationStatus;
-		this.email=email;
-		
-	}
-	
-	public int getApplicantID() {
-		return applicantID;
+		this.MortgageID = mortgageID;
+		ApplicantName = applicantName;
+		MortgageValue = mortgageValue;
+		MSID = mSID;
+		this.employerName = employerName;
+		this.pswd = pswd;
+		this.applicationStatus = applicationStatus;
 	}
 
-	public void setApplicantID(int applicantID) {
-		this.applicantID = applicantID;
+	public int getMortgageID() {
+		return MortgageID;
 	}
+
+
+	public void setMortgageID(int mortgageID) {
+		MortgageID = mortgageID;
+	}
+
+
+	public String getApplicantName() {
+		return ApplicantName;
+	}
+
+
+	public void setApplicantName(String applicantName) {
+		ApplicantName = applicantName;
+	}
+
+
+	public double getMortgageValue() {
+		return MortgageValue;
+	}
+
+
+	public void setMortgageValue(double mortgageValue) {
+		MortgageValue = mortgageValue;
+	}
+
+
+	public int getMSID() {
+		return MSID;
+	}
+
+
+	public void setMSID(int mSID) {
+		MSID = mSID;
+	}
+
 
 	public String getEmployerName() {
 		return employerName;
 	}
 
+
 	public void setEmployerName(String employerName) {
 		this.employerName = employerName;
 	}
 
-	public String getAddress() {
-		return address;
-	}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public double getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(double phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getApplicationNumber() {
-		return applicationNumber;
-	}
-
-	public void setApplicationNumber(String applicationNumber) {
-		this.applicationNumber = applicationNumber;
-	}
-
-	public String getSalary() {
-		return salary;
-	}
-
-	public void setSalary(String salary) {
-		this.salary = salary;
+	public String getPswd() {
+		return pswd;
 	}
 
 
-	public String getFirstName() {
-		return firstName;
+	public void setPswd(String pswd) {
+		this.pswd = pswd;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
 
 	public String getApplicationStatus() {
 		return applicationStatus;
 	}
 
+
 	public void setApplicationStatus(String applicationStatus) {
 		this.applicationStatus = applicationStatus;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@Override
-	public String toString(){
-		return String.format("Applicant [Applicant ID = %d, firstName = %s, lastName = %s", applicantID, firstName, lastName);
-	}
+	
+//	
+//	@Override
+//	public String toString(){
+//		return String.format("Applicant [MortgageID = %d, Name = %s, lastName = %s", applicantID, firstName, lastName);
+//	}
 
 	
 }

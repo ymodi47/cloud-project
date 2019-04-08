@@ -25,25 +25,24 @@ public class MortgageApplicantService {
 	// inserting employee
 	public MortgageApplicant addMortgageApplicant(MortgageApplicant applicant) {
 		applicant.setApplicationStatus("Work In Progress");
-	    String applicationNumberUnique="App-"+UUID.randomUUID().toString();
-	    applicant.setApplicationNumber(applicationNumberUnique);
+	  //  String applicationNumberUnique="App-"+UUID.randomUUID().toString();
+	    //applicant.setApplicationNumber(applicationNumberUnique);
 		MortgageApplicant mortgageApplicant=mortgageApplicantRepository.save(applicant);
 		return mortgageApplicant;
 	}
 
 	// update employee
-		public MortgageApplicant UpdateMortgageApplicant(String ApplicationNumber) {
+		public MortgageApplicant UpdateMortgageApplicant(int MortgageID) {
 			//applicant.setApplicationStatus("Done");
-			MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByApplicationNumber(ApplicationNumber);
-			
+			MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByMortgageId(MortgageID);
 			mortgageApplicant.setApplicationStatus("Verified!");
 			MortgageApplicant Applicant=mortgageApplicantRepository.save(mortgageApplicant);
 			return Applicant;
 		}
 	
-	public MortgageApplicant getApplicantByApplicationID(String ApplicationNumber) {
+	public MortgageApplicant getApplicantByMortgageID(int MortgageID) {
 		// TODO Auto-generated method stub
-		MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByApplicationNumber(ApplicationNumber);
+		MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByMortgageId(MortgageID);
 		return mortgageApplicant;
 	}
 	

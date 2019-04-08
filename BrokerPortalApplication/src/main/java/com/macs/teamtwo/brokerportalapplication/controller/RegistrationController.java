@@ -37,7 +37,7 @@ public class RegistrationController {
 		    if(addedMortgageApplicant!=null)
 		    {
 		    	modelAndView.addObject("successMessage", "Application submitted Sucessfully");
-		    	modelAndView.addObject("applicationNumber", addedMortgageApplicant.getApplicationNumber());
+		    	modelAndView.addObject("applicationNumber", addedMortgageApplicant.getMortgageID());
 		    	
 		    	String brokerPort = env.getRequiredProperty("server.port");
 		    	String brokerIp = env.getRequiredProperty("serverIp");
