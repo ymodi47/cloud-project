@@ -25,34 +25,30 @@
 
 <body>
 
+<style>
+    #appStatusBtn {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+</style>
 <nav class="navbar navbar-dark bg-primary">
       <a class="navbar-brand" href="/login">Employee Portal</a>
-     <button class="btn btn-outline-success" href="/applicationstatus" type="button">Application Status</button>
+     <button class="btn btn-outline-success" id="appStatusBtn" type="button">Application Status</button>
 </nav>
 
 <div class="container" style="margin-top:40px">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
-                <h5 class="card-header">${sign_in_continue}Please check your status</h5>
+                <h5 class="card-header">${sign_in_continue}Login</h5>
                 <div class="card-body">
                     <form role="form" action="/login" method="post" autocomplete="off">
-                        <div class="col-sm-12 col-md-10 col-md-offset-1 ">
                             <div class="form-group">
-                                <div class="input-group">
-                                      <span class="input-group-addon">
-                                          <i class="glyphicon glyphicon-user"></i>
-                                      </span>
                                     <input class="form-control" placeholder="E-Mail" value='${param.email}' name="email" type="text" autofocus required autocomplete="off" maxlength="255" >
-                                </div>
                             </div>
                             <div class="form-group">
-                                <div class="input-group">
-                                      <span class="input-group-addon">
-                                          <i class="glyphicon glyphicon-lock"></i>
-                                      </span>
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="${param.password}" autocomplete="off" required maxlength="255">
-                                </div>
                             </div>
 	                            <c:if test="${not empty errorMessage}">
                                 <div class="alert alert-danger">
@@ -68,15 +64,23 @@
                                     </strong>
                                 </div>
                             </c:if>
+                        <center>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-lg btn-primary btn-block" value="${Login}">
+                                <input type="submit" class="btn btn-md btn-primary" value="${Login}">
                             </div>
-                        </div>
+                        </center>
                     </form>
                      </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $("#appStatusBtn").on('click',function () {
+            window.location.href="/applicationstatus";
+        });
+    });
+</script>
 </body>
 </html>

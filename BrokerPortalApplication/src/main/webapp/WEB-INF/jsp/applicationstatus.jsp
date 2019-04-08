@@ -23,12 +23,10 @@
 <fmt:message bundle="${loc}" key="local.label.get_status" var="get_status"/>
 
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/mortgageapplicationform">Broker Portal</a>
-    </div>
-  </div>
+
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="/mortgageapplicationform">Broker Portal</a>
+    <button class="btn btn-outline-success" id="appStatusBtn" type="button">Application Status</button>
 </nav>
 
 <div class="container" style="margin-top:40px">

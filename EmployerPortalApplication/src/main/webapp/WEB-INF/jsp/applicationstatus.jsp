@@ -26,14 +26,13 @@
 
 <nav class="navbar navbar-dark bg-primary">
       <a class="navbar-brand" href="/login">Employee Portal</a>
-     <button class="btn btn-outline-success" href="/applicationstatus" type="button">Application Status</button>
 </nav>
 
 <div class="container" style="margin-top:40px">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
-                <h5 class="card-header">${sign_in_continue}Please check your status</h5>
+                <h5 class="card-header">${sign_in_continue}Check application status</h5>
                 <div class="card-body">
                 
                 	<div class="panel-body">
@@ -54,28 +53,19 @@
 		                            </c:if>
 		                 
 		                    <form role="form" action="/applicationstatus" method="post" autocomplete="off">
-		                        <div class="col-sm-12 col-md-10 col-md-offset-1 ">
 		                            <div class="form-group">
-		                                <div class="input-group">
-		                                      <span class="input-group-addon">
-		                                          <i class="glyphicon glyphicon-user"></i>
-		                                      </span>
 		                                    <input class="form-control" placeholder="Mortage ID" value="" name="link" type="text" autofocus required autocomplete="off" maxlength="255" >
-		                                </div>
 		                            </div>
 		                            <div class="form-group">
-		                                <div class="input-group">
-		                                      <span class="input-group-addon">
-		                                          <i class="glyphicon glyphicon-link"></i>
-		                                      </span>
+
 		                                    <input class="form-control" placeholder="Mortage Link" name="applicationNumber" type="text" value="" autocomplete="off" required maxlength="255">
-		                                </div>
 		                            </div>
-		                            	                           
+
+									<center>
 		                            <div class="form-group">
-		                                <input type="submit" class="btn btn-lg btn-primary btn-block" id ="btnGetStatus" value="${Submit}">
+		                                <input type="submit" class="btn btn-md btn-primary" id ="btnGetStatus" value="${Submit}">
 		                            </div>
-		                        </div>
+									</center>
 		                    </form>
                      </div>
             </div>
