@@ -34,7 +34,7 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
-                <h5 class="card-header">${sign_in_continue}Please check your status</h5>
+                <h5 class="card-header">Check application status</h5>
                 <div class="card-body">
                     <form role="form" action="/login" method="post" autocomplete="off">
                         <div class="form-group">
