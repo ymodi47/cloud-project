@@ -1,6 +1,9 @@
 package com.macs.teamtwo.brokerportalapplication.service;
 
 
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,21 +25,25 @@ public class MortgageApplicantService {
 	// inserting employee
 	public MortgageApplicant addMortgageApplicant(MortgageApplicant applicant) {
 		applicant.setApplicationStatus("Work In Progress");
+	    String applicationNumberUnique="App-"+UUID.randomUUID().toString();
+	    applicant.setApplicationNumber(applicationNumberUnique);
 		MortgageApplicant mortgageApplicant=mortgageApplicantRepository.save(applicant);
 		return mortgageApplicant;
 	}
 
 	// update employee
-		public MortgageApplicant UpdateMortgageApplicant(int MortgageID) {
-			MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByMortgageID(MortgageID);
+		public MortgageApplicant UpdateMortgageApplicant(String ApplicationNumber) {
+			//applicant.setApplicationStatus("Done");
+			MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByApplicationNumber(ApplicationNumber);
+			
 			mortgageApplicant.setApplicationStatus("Verified!");
 			MortgageApplicant Applicant=mortgageApplicantRepository.save(mortgageApplicant);
 			return Applicant;
 		}
 	
-	public MortgageApplicant getApplicantByMortgageID(int MortgageID) {
+	public MortgageApplicant getApplicantByApplicationID(String ApplicationNumber) {
 		// TODO Auto-generated method stub
-		MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByMortgageID(MortgageID);
+		MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByApplicationNumber(ApplicationNumber);
 		return mortgageApplicant;
 	}
 	
