@@ -18,9 +18,9 @@ public class InsuranceAvailabilityConfirmationController {
 	// of the property MortID and then it submits the appraisal to the INSinc by
 	// invoking the INSinc’s web service with
 	// parameters MortID and appraised $ value.
-	@GetMapping(value = "/insurancedetails/{MIsID}")
-	public MIsIDDetails constructQuote(@PathVariable int MIsID) {
-		return insuranceEvaluatorService.constructQuote(MIsID);
+	@GetMapping(value = "/insurancedetails/{misID}")
+	public MIsIDDetails constructQuote(@PathVariable int misID) {
+		return insuranceEvaluatorService.constructQuote(misID);
 
 	}
 }

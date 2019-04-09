@@ -16,8 +16,8 @@ public class InsuranceEvaluatorService {
 	@Autowired
 	private InsuranceEvaluatorRepository insuranceRepository;
 
-	public MIsIDDetails constructQuote(int mIsID) {
-		return insuranceRepository.getMIsIDDetailsByMIsID(mIsID);
+	public MIsIDDetails constructQuote(int misID) {
+		return insuranceRepository.getMIsIDDetailsBymisID(misID);
 
 	}
 }
