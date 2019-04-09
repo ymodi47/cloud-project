@@ -8,5 +8,5 @@ import com.macs.teamtwo.realstateportalapplication.domain.MortgageApplicant;
 @Repository
 public interface AppraiserValueEvaluatorRepository extends JpaRepository<MortgageApplicant, Integer> {
 
-	double getAppraserValueByMortgageIDAndMSID(int mortgageID, int mSID);
+	MortgageApplicant getAppraserValueByMortgageIDAndMSID(int mortgageID, int mSID);
 }

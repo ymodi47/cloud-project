@@ -8,14 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "mortageapplicantdetails")
+@Table (name = "Insurance")
 public class MortgageApplicant {
 	
-	public MortgageApplicant(int mortgageID, String applicantName, int msID) {
+	public MortgageApplicant(int mortgageID, String applicantName, int mSID) {
 		super();
 		this.mortgageID = mortgageID;
 		this.applicantName = applicantName;
-		this.MSID = msID;
+		this.mSID = mSID;
 	}
 	
 	
@@ -30,8 +30,8 @@ public class MortgageApplicant {
 	@Column(name="appraiserValue")
 	private double appraiserValue;
 	
-	@Column(name="MSID")
-	private int MSID;
+	@Column(name="mSID")
+	private int mSID;
 	
 
 	
@@ -57,13 +57,6 @@ public class MortgageApplicant {
 		this.appraiserValue = appraiserValue;
 	}
 
-	public int getMSID() {
-		return MSID;
-	}
-
-	public void setMSID(int mSID) {
-		this.MSID = mSID;
-	}
 
 	public void setMortgageID(int mortgageID) {
 		this.mortgageID = mortgageID;
@@ -71,6 +64,16 @@ public class MortgageApplicant {
 
 	public int getMortgageID() {
 		return mortgageID;
+	}
+
+
+	public int getmSID() {
+		return mSID;
+	}
+
+
+	public void setmSID(int mSID) {
+		this.mSID = mSID;
 	}
 
 	
