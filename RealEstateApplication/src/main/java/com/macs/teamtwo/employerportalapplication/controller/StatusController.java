@@ -1,4 +1,4 @@
-package com.macs.teamtwo.RealEstateapplication.controller;
+package com.macs.teamtwo.employerportalapplication.controller;
 
 
 
@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.macs.teamtwo.RealEstateapplication.domain.RealEstate;
-import com.macs.teamtwo.RealEstateapplication.service.RealEstateService;
+import com.macs.teamtwo.employerportalapplication.domain.Employee;
+import com.macs.teamtwo.employerportalapplication.service.EmployeeService;
 
 @Controller
 public class StatusController {
 
 	@Autowired
-	RealEstateService realEstateService;
+	EmployeeService employeeService;
 
 
 	// show registration
@@ -28,12 +28,12 @@ public class StatusController {
 
 	// Process form input data
 	@RequestMapping(value = "/status", method = RequestMethod.POST)
-	public ModelAndView processLoginForm(ModelAndView modelAndView, @Valid RealEstate realEstate) {
+	public ModelAndView processLoginForm(ModelAndView modelAndView, @Valid Employee employee) {
 		    
-		    RealEstate emp=realEstateService.getEmployeeByEmailAndPassword(realEstate.getEmail(), realEstate.getPassword());
+		    Employee emp=employeeService.getEmployeeByEmailAndPassword(employee.getEmail(), employee.getPassword());
 		    if(emp!=null)
 		    {
-		    	modelAndView.addObject("successMessage", "RealEstate Authenticated Sucessfully");
+		    	modelAndView.addObject("successMessage", "Employee Authenticated Sucessfully");
 		    	modelAndView.setViewName("applicationstatus");
 		    }else
 		    {

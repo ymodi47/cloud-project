@@ -1,4 +1,4 @@
-package com.macs.teamtwo.RealEstateapplication.domain;
+package com.macs.teamtwo.employerportalapplication.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name = "realestate")
-public class RealEstate {
+public class Employee {
 
 	@Id
 	@Column(name="employee_id")
@@ -30,11 +30,11 @@ public class RealEstate {
 	private String email;
 	
 	
-	public RealEstate(){
+	public Employee(){
 		
 	}
 	
-	public RealEstate(String firstName, String lastName,String email) {
+	public Employee(String firstName, String lastName,String email) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -86,7 +86,7 @@ public class RealEstate {
 
 	@Override
 	public String toString(){
-		return String.format("RealEstate [RealEstate ID = %d, firstName = %s, lastName = %s", employeeID, firstName, lastName);
+		return String.format("Employee [Employee ID = %d, firstName = %s, lastName = %s", employeeID, firstName, lastName);
 	}
 
 	
