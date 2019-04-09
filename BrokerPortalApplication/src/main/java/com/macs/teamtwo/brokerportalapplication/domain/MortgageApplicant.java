@@ -1,18 +1,31 @@
 package com.macs.teamtwo.brokerportalapplication.domain;
 
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table (name = "mortageapplicantdetails")
 public class MortgageApplicant {
+	
+	public MortgageApplicant(int mortgageID, String applicantName, double mortgageValue, int mSID, String employerName,
+			String pswd, String applicationStatus) {
+		super();
+		this.MortgageID = mortgageID;
+		ApplicantName = applicantName;
+		MortgageValue = mortgageValue;
+		MSID = mSID;
+		this.employerName = employerName;
+		this.pswd = pswd;
+		this.applicationStatus = applicationStatus;
+	}
+
+	public int getMortgageID() {
+		return MortgageID;
+	}
 
 	@Id
 	@Column(name="MortgageId")
@@ -40,23 +53,6 @@ public class MortgageApplicant {
 	
 	public MortgageApplicant(){
 		
-	}
-
-
-	public MortgageApplicant(int mortgageID, String applicantName, double mortgageValue, int mSID, String employerName,
-			String pswd, String applicationStatus) {
-		super();
-		this.MortgageID = mortgageID;
-		ApplicantName = applicantName;
-		MortgageValue = mortgageValue;
-		MSID = mSID;
-		this.employerName = employerName;
-		this.pswd = pswd;
-		this.applicationStatus = applicationStatus;
-	}
-
-	public int getMortgageID() {
-		return MortgageID;
 	}
 
 

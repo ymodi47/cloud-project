@@ -12,7 +12,6 @@ import com.macs.teamtwo.employerportalapplication.repository.EmployeeRepository;
 @Service
 public class EmployeeService {
 	
-	//static final String URL_EMPLOYEE = "http://localhost:8086/morgageaaplicant/";
 	
 	String BrokerPort = Config.getProperty("BrokerPort");
 	String BrokerIp = Config.getProperty("BrokerIp");
@@ -33,14 +32,10 @@ public class EmployeeService {
 		return employee;
 	}
 	
-	// get employee by email id and password
+	    // get employee by email id and password
 		public Boolean getEmployeeByApplicationNumber(String applicationNumber,String link) {
 			RestTemplate restTemplate = new RestTemplate();
-	        // Send request with GET method and default Headers.
 	        MortgageApplicant applicant = restTemplate.getForObject(link+applicationNumber, MortgageApplicant.class);
-	       
-	     //   System.out.println("URL_EMPLOYEE: " +   URL_EMPLOYEE);
-	        
 	        if (applicant != null) {
 	                System.out.println("Employee: " + applicant.getFirstName() + " - " + applicant.getLastName());
 	                String URL_BrokerUpdate ="http://"+BrokerIp+":"+BrokerPort+"/morgageaaplicantStatus/";
