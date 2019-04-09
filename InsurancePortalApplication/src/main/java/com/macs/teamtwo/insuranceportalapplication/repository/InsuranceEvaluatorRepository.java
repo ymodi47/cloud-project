@@ -7,5 +7,5 @@ import com.macs.teamtwo.insuranceportalapplication.domain.MIsIDDetails;
 @Repository
 public interface InsuranceEvaluatorRepository extends JpaRepository<MIsIDDetails, Integer> {
 
-	MIsIDDetails getMIsIDDetailsByMIsID(int MIsID);
+	//MIsIDDetails getMIsIDDetailsByMIsID(int MIsID);
 }

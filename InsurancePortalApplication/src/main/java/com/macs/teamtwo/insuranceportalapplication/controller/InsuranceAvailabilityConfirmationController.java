@@ -1,14 +1,14 @@
 package com.macs.teamtwo.insuranceportalapplication.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.macs.teamtwo.insuranceportalapplication.domain.MIsIDDetails;
 import com.macs.teamtwo.insuranceportalapplication.service.InsuranceEvaluatorService;
 
-@RestController
+@Controller
 public class InsuranceAvailabilityConfirmationController {
 
 	@Autowired
@@ -20,7 +20,8 @@ public class InsuranceAvailabilityConfirmationController {
 	// parameters MortID and appraised $ value.
 	@GetMapping(value = "/insurancedetails/{MIsID}")
 	public MIsIDDetails constructQuote(@PathVariable int MIsID) {
-		return insuranceEvaluatorService.constructQuote(MIsID);
+		// insuranceEvaluatorService.constructQuote(MIsID);
+		 return null;
 
 	}
 }

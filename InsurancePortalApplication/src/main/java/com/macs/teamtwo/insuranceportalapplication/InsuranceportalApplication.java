@@ -8,7 +8,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 
-@SpringBootApplication(scanBasePackages={"com.macs.teamtwo.insuranceportalapplication", "com.macs.teamtwo.insuranceportalapplication.controller","com.macs.teamtwo.insuranceportalapplication.repository","com.macs.teamtwo.insuranceportalapplication.service","com.macs.teamtwo.insuranceportalapplication.domain"})
+@SpringBootApplication(scanBasePackages={"com.macs.teamtwo.insuranceportalapplication.controller", "com.macs.teamtwo.insuranceportalapplication.controller","com.macs.teamtwo.insuranceportalapplication.domain","com.macs.teamtwo.insuranceportalapplication.service","com.macs.teamtwo.insuranceportalapplication.service"})
 public class InsuranceportalApplication extends SpringBootServletInitializer {
 	
 	static Logger logger = LoggerFactory.getLogger(InsuranceportalApplication.class);

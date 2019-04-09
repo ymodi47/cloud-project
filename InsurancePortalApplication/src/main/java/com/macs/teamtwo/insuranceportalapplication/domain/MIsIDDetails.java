@@ -11,11 +11,6 @@ import javax.persistence.Table;
 @Table (name = "MIsIDDetails")
 public class MIsIDDetails {
 	
-	public MIsIDDetails( int msID) {
-		super();
-		this.MIsID = msID;
-	}
-	
 	@Id
 	@Column(name="MIsID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,23 +18,23 @@ public class MIsIDDetails {
 	
 
 	@Column(name="insuredvalue")
-	private String insuredvalue;
+	private double insuredvalue;
 
 
 	@Column(name="deductiblevalue")
-	private String deductiblevalue;
+	private double deductiblevalue;
 	
 
 	public MIsIDDetails(){
 		
 	}
 	
-	public String getInsuredvalue() {
+	public double getInsuredvalue() {
 		return insuredvalue;
 	}
 
 
-	public void setInsuredvalue(String insuredvalue) {
+	public void setInsuredvalue(double insuredvalue) {
 		this.insuredvalue = insuredvalue;
 	}
 
@@ -47,15 +42,15 @@ public class MIsIDDetails {
 		return MIsID;
 	}
 
-	public void setMIsID(int mIsID) {
-		MIsID = mIsID;
+	public void setMIsID(int MIsID) {
+		this.MIsID = MIsID;
 	}
 
-	public String getDeductiblevalue() {
+	public double getDeductiblevalue() {
 		return deductiblevalue;
 	}
 
-	public void setDeductiblevalue(String deductiblevalue) {
+	public void setDeductiblevalue(double deductiblevalue) {
 		this.deductiblevalue = deductiblevalue;
 	}
 	
