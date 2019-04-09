@@ -1,4 +1,4 @@
-package com.macs.teamtwo.InsurancePortalapplication.service;
+package com.macs.teamtwo.employerportalapplication.service;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;

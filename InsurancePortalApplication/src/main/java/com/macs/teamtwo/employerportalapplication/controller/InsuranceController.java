@@ -1,4 +1,4 @@
-package com.macs.teamtwo.InsurancePortalapplication.controller;
+package com.macs.teamtwo.employerportalapplication.controller;
 
 
 
@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.macs.teamtwo.InsurancePortalapplication.domain.Insurance;
-import com.macs.teamtwo.InsurancePortalapplication.service.InsuranceService;
+import com.macs.teamtwo.employerportalapplication.domain.Employee;
+import com.macs.teamtwo.employerportalapplication.service.EmployeeService;
 
 @Controller
 public class InsuranceController {
 
 	@Autowired
-	InsuranceService insuranceService;
+	EmployeeService employeeService;
 
 
 	// show registration
@@ -28,12 +28,12 @@ public class InsuranceController {
 
 	// Process form input data
 	@RequestMapping(value = "/insuranceStatus", method = RequestMethod.POST)
-	public ModelAndView processLoginForm(ModelAndView modelAndView, @Valid Insurance insurance) {
+	public ModelAndView processLoginForm(ModelAndView modelAndView, @Valid Employee employee) {
 		    
-		    Insurance emp=insuranceService.getEmployeeByEmailAndPassword(insurance.getEmail(), insurance.getPassword());
+		    Employee emp=employeeService.getEmployeeByEmailAndPassword(employee.getEmail(), employee.getPassword());
 		    if(emp!=null)
 		    {
-		    	modelAndView.addObject("successMessage", "Insurance Authenticated Sucessfully");
+		    	modelAndView.addObject("successMessage", "Employee Authenticated Sucessfully");
 		    	modelAndView.setViewName("insurancePortal");
 		    }else
 		    {

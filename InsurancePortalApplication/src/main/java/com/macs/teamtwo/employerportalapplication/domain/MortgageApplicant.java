@@ -1,4 +1,4 @@
-package com.macs.teamtwo.InsurancePortalapplication.domain;
+package com.macs.teamtwo.employerportalapplication.domain;
 
 
 
