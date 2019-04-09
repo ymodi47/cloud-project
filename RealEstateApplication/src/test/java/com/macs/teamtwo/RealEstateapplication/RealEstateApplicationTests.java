@@ -1,4 +1,4 @@
-package com.macs.teamtwo.employerportalapplication;
+package com.macs.teamtwo.RealEstateapplication;
 /*package com.macs.groupone.friendbookapplication;
 
 import org.junit.Test;

@@ -1,16 +1,16 @@
-package com.macs.teamtwo.employerportalapplication.service;
+package com.macs.teamtwo.RealEstateapplication.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.macs.teamtwo.employerportalapplication.domain.Employee;
-import com.macs.teamtwo.employerportalapplication.domain.MortgageApplicant;
-import com.macs.teamtwo.employerportalapplication.repository.EmployeeRepository;
+import com.macs.teamtwo.RealEstateapplication.domain.RealEstate;
+import com.macs.teamtwo.RealEstateapplication.domain.MortgageApplicant;
+import com.macs.teamtwo.RealEstateapplication.repository.RealEstateRepository;
 
 // employee service class
 @Service
-public class EmployeeService {
+public class RealEstateService {
 	
 	//static final String URL_EMPLOYEE = "http://localhost:8086/morgageaaplicant/";
 	
@@ -19,18 +19,18 @@ public class EmployeeService {
 	
 	String URL_EMPLOYEE ="http://"+BrokerIp+":"+BrokerPort+"/morgageaaplicant/";	
 	
-	EmployeeService()
+	RealEstateService()
 	{
 		
 	}
 	
 	@Autowired
-	private EmployeeRepository employeeRepository;
+	private RealEstateRepository realEstateRepository;
 	
 	// get employee by email id and password
-	public Employee getEmployeeByEmailAndPassword(String email,String password) {
-		Employee employee=employeeRepository.getEmployeeByEmailAndPassword(email, password);
-		return employee;
+	public RealEstate getEmployeeByEmailAndPassword(String email,String password) {
+		RealEstate realEstate=realEstateRepository.getEmployeeByEmailAndPassword(email, password);
+		return realEstate;
 	}
 	
 	// get employee by email id and password
@@ -42,7 +42,7 @@ public class EmployeeService {
 	     //   System.out.println("URL_EMPLOYEE: " +   URL_EMPLOYEE);
 	        
 	        if (applicant != null) {
-	                System.out.println("Employee: " + applicant.getFirstName() + " - " + applicant.getLastName());
+	                System.out.println("RealEstate: " + applicant.getFirstName() + " - " + applicant.getLastName());
 	                String URL_BrokerUpdate ="http://"+BrokerIp+":"+BrokerPort+"/morgageaaplicantStatus/";
 	               restTemplate.getForObject(URL_BrokerUpdate+applicationNumber, MortgageApplicant.class);
 	                return true;
