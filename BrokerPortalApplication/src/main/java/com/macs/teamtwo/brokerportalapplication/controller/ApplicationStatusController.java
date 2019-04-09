@@ -29,20 +29,20 @@ public class ApplicationStatusController {
 		return "applicationstatus";
 	}
 
-	// Process application status
-	@RequestMapping(value = "/applicationstatus", method = RequestMethod.POST)
-	public ModelAndView processLogin(ModelAndView modelAndView, @Valid MortgageApplicant mortgageApplicant, BindingResult bindingResult,
-			HttpServletRequest request) {
-		MortgageApplicant applicant = mortgageApplicantService.getApplicantByApplicationID(mortgageApplicant.getApplicationNumber());
-		if (applicant == null) {
-			modelAndView.addObject("errorMessage", "applicant does not exists");
-		} else
-		{
-			modelAndView.addObject("successMessage", "Applicant status is : "+applicant.getApplicationStatus());
-			System.out.println("status of the Application : "+applicant.getApplicationStatus());
-		}
-		modelAndView.setViewName("applicationstatus");
-		return modelAndView;
-	}
+//	// Process application status
+//	@RequestMapping(value = "/applicationstatus", method = RequestMethod.POST)
+//	public ModelAndView processLogin(ModelAndView modelAndView, @Valid MortgageApplicant mortgageApplicant, BindingResult bindingResult,
+//			HttpServletRequest request) {
+//		MortgageApplicant applicant = mortgageApplicantService.getApplicantByApplicationID(mortgageApplicant.getApplicantID());
+//		if (applicant == null) {
+//			modelAndView.addObject("errorMessage", "applicant does not exists");
+//		} else
+//		{
+//			modelAndView.addObject("successMessage", "Applicant status is : "+applicant.getApplicationStatus());
+//			System.out.println("status of the Application : "+applicant.getApplicationStatus());
+//		}
+//		modelAndView.setViewName("applicationstatus");
+//		return modelAndView;
+//	}
 
 }
