@@ -15,7 +15,7 @@
 
 <html>
 <head>
-    <title>Login</title>
+    <title>Status</title>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -30,18 +30,18 @@
 </nav>
 
 <div class="container" style="margin-top:40px">
-<c:if test="${not empty successMessage}">
-									<div class="alert alert-success" role="alert">
-  <a href="#" class="alert-link">${successMessage}!!</a>
-</div>
-								</c:if>
-<c:if test="${not empty errorMessage}">
-                            <div class="alert alert-danger" role="alert">
-                                <strong>
-                                        ${errorMessage}
-                                </strong>
-                            </div>
-                        </c:if>
+    <c:if test="${not empty successMessage}">
+        <div class="alert alert-success" role="alert">
+            <a href="#" class="alert-link">${successMessage}!!</a>
+        </div>
+    </c:if>
+    <c:if test="${not empty errorMessage}">
+        <div class="alert alert-danger" role="alert">
+            <strong>
+                    ${errorMessage}
+            </strong>
+        </div>
+    </c:if>
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
@@ -72,9 +72,9 @@
                             </div>
                         </div>
                     </form>
-                     </div>
-                 <p style="text-align:right;margin-right: 25px;margin-top: -10px;margin-bottom: 15px">
-                     New Member? <a href="/mortgageapplicationform" onClick="">signUp </a> 
+                </div>
+                <p style="text-align:right;margin-right: 25px;margin-top: -10px;margin-bottom: 15px">
+                    New Member? <a href="/mortgageapplicationform" onClick="">signUp </a>
                 </p>
             </div>
         </div>

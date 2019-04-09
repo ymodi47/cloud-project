@@ -30,146 +30,143 @@
 </nav>
 
 <div class="container" style="margin-top:40px">
-<%-- <c:if test="${not empty successMessage}"> --%>
-<!-- <div class="alert alert-success" role="alert"> -->
-<%--   <a href="#" class="alert-link">${successMessage}!! Your Application number is ${applicationNumber} and link is ${link}.</a> --%>
-<!--   <script type="text/javascript"> -->
-<!--   document.mortgageForm.reset(); -->
-<!--   </script> -->
-<!-- </div> -->
-<%-- </c:if> --%>
-<%-- <c:if test="${not empty errorMessage}"> --%>
-<!--                             <div class="alert alert-danger" role="alert"> -->
-<!--                                 <strong> -->
-<%--                                         ${errorMessage} --%>
-<!--                                 </strong> -->
-<!--                             </div> -->
-<%--                         </c:if> --%>
+    <%-- <c:if test="${not empty successMessage}"> --%>
+    <!-- <div class="alert alert-success" role="alert"> -->
+    <%--   <a href="#" class="alert-link">${successMessage}!! Your Application number is ${applicationNumber} and link is ${link}.</a> --%>
+    <!--   <script type="text/javascript"> -->
+    <!--   document.mortgageForm.reset(); -->
+    <!--   </script> -->
+    <!-- </div> -->
+    <%-- </c:if> --%>
+    <%-- <c:if test="${not empty errorMessage}"> --%>
+    <!--                             <div class="alert alert-danger" role="alert"> -->
+    <!--                                 <strong> -->
+    <%--                                         ${errorMessage} --%>
+    <!--                                 </strong> -->
+    <!--                             </div> -->
+    <%--                         </c:if> --%>
 
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-6">
             <div class="card">
                 <h5 class="card-header">New Applicant</h5>
                 <div class="card-body">
 
                     <div class="panel-body">
-                    <form role="form" name="mortgageForm" action="/mortgageapplicationform" method="post" autocomplete="off">
-                        <div class="form-group">
-                            <input type="text" name="ApplicantName" id="AppName" class="form-control" placeholder="Applicant Name" required maxlength="255" value='${param.ApplicantName}'>
-                        </div>
-                        <div class="form-group">
-                        <input type="text" name="MortgageValue" id="MortgValue" class="form-control" placeholder="Mortgage Value" required maxlength="255" value='${param.MortgageValue}'>
+                        <form role="form" name="mortgageForm" action="/mortgageapplicationform" method="post" autocomplete="off">
+                            <div class="form-group">
+                                <input type="text" name="ApplicantName" id="AppName" class="form-control" placeholder="Applicant Name" required maxlength="255" value='${param.ApplicantName}'>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="MortgageValue" id="MortgValue" class="form-control" placeholder="Mortgage Value" required maxlength="255" value='${param.MortgageValue}'>
+                            </div>
+
+                            <div class="form-group">
+                                <select name="MortgageValue" id="MortgValue" class="form-control" value='${param.MSID}'>
+                                    <option value="">MSID</option>
+                                    <option value="0001">ms1</option>
+                                    <option value="0002">ms2</option>
+                                    <option value="0003">ms3</option>
+                                    <option value="0004">ms4</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="EmployerName" id="EmpName" class="form-control" placeholder="Employer Name" required maxlength="255" value='${param.employerName}'>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="pswd" id="pswd" class="form-control checkpw" placeholder="Password" required maxlength="15" value='${param.pswd}'>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="conPswd" id="conPswd" class="form-control checkpw" placeholder="Confirm Password" required maxlength="15" >
+                            </div>
+
+                            <div class="form-group">
+                                <center>
+                                    <input type="submit" style="max-width:150px" id="btnSubmitNew" class="btn btn-md btn-primary" value="Submit" disabled="disabled" >
+                                </center>
+                            </div>
+
+                        </form>
                     </div>
-                    
-                    <div class="form-group">
-                    <select name="MortgageValue" id="MortgValue" class="form-control" value='${param.MSID}'>
-                    <option value="">MSID</option>
-                    <option value="0001">ms1</option>
-                    <option value="0002">ms2</option>
-                    <option value="0003">ms3</option>
-                    <option value="0004">ms4</option>
-                  </select>
-                </div>
-                    
-                    <div class="form-group">
-                    <input type="text" name="EmployerName" id="EmpName" class="form-control" placeholder="Employer Name" required maxlength="255" value='${param.employerName}'>
-                </div>
-               		 <div class="form-group">
-                <input type="password" name="pswd" id="pswd" class="form-control checkpw" placeholder="Password" required maxlength="15" value='${param.pswd}'>
-            </div>
-            <div class="form-group">
-            <input type="password" name="conPswd" id="conPswd" class="form-control checkpw" placeholder="Confirm Password" required maxlength="15" >
-        </div>           
-        			
-                        <div class="form-group">
-                        <center>
-                            <input type="submit" style="max-width:150px" id="btnSubmitNew" class="btn btn-md btn-primary" value="${Submit}" disabled="disabled" >
-                        </center>
-                        </div>
-                       
-                    </form>
-                </div>
- 				<div class="panel-footer">
-                   <c:if test="${not empty errorMessage}">
-                <div class="alert alert-danger">
-                    <strong>
-                        ${errorMessage}
-                    </strong>
-                </div>
-            </c:if>
+                    <div class="panel-footer">
+                        <c:if test="${not empty errorMessage}">
+                            <div class="alert alert-danger">
+                                <strong>
+                                        ${errorMessage}
+                                </strong>
+                            </div>
+                        </c:if>
+                    </div>
                 </div>
             </div>
-     </div>
         </div>
 
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-6">
                     <div class="card">
                         <h5 class="card-header">Existing Applicant</h5>
                         <div class="card-body">
 
                             <div class="panel-body">
-            <form role="form" action="/login" method="post" autocomplete="off">
-            <div class="col-sm-12 col-md-10 col-md-offset-1 ">
-                <div class="form-group">
-                    <div class="input-group">
+                                <form role="form" action="/login" method="post" autocomplete="off">
+                                    <div class="col-sm-12 col-md-10 col-md-offset-1 ">
+                                        <div class="form-group">
+                                            <div class="input-group">
                           <span class="input-group-addon">
                               <i class="glyphicon glyphicon-user"></i>
                           </span>
-                        <input class="form-control" placeholder="Mortgage ID" value='${param.MortgageId}' name="MortgageId" type="text" required autocomplete="off" maxlength="255" >
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
+                                                <input class="form-control" placeholder="Mortgage ID" value='${param.MortgageId}' name="MortgageId" type="text" required autocomplete="off" maxlength="255" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
                           <span class="input-group-addon">
                               <i class="glyphicon glyphicon-lock"></i>
                           </span>
-                        <input class="form-control" placeholder="Password" name="password" type="password" value="${param.password}" autocomplete="off" required maxlength="255">
-                    </div>
+                                                <input class="form-control" placeholder="Password" name="password" type="password" value="${param.password}" autocomplete="off" required maxlength="255">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <center>
+                                                <input type="submit" style="max-width:150px" id="btnSubmitExist" class="btn btn-md btn-primary"  value="Submit" >
+                                            </center>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="panel-footer">
+                                <c:if test="${not empty errorMessage}">
+                                    <div class="alert alert-danger">
+                                        <strong>
+                                                ${errorMessage}
+                                        </strong>
+                                    </div>
+                                </c:if>
+                            </div>
+
                 </div>
-                <div class="form-group">
-                    <center>
-                            <input type="submit" style="max-width:150px" id="btnSubmitExist" class="btn btn-md btn-primary"  value="${Submit}" >
-                        </center>
-               </div>
-               </div>
-               </form>
             </div>
-            <div class="panel-footer">
-                   <c:if test="${not empty errorMessage}">
-                <div class="alert alert-danger">
-                    <strong>
-                        ${errorMessage}
-                    </strong>
-                </div>
-            </c:if>
-                </div>
-              
-      </div>
-		</div>
-	</div>
-</div>
+        </div>
+    </div>
+            <script>
+                $(document).ready(function(){
+                    $("#appStatusBtn").on('click',function () {
+                        window.location.href="/applicationstatus";
+                    });
 
-    <script>
-    $(document).ready(function(){
-        $("#appStatusBtn").on('click',function () {
-            window.location.href="/applicationstatus";
-        });
-
-        $('.checkpw').on('blur',function(){
-            if ($('#pswd').val() == $('#conPswd').val()) {
-                $("#conPswd").css("color", "green");
-                $("#btnSubmitNew").prop('disabled', false);
-            }
-            else
-            {
-                $("#conPswd").css("color", "red");
-                $("#btnSubmitNew").prop('disabled', true);
-            }
-        });
-    });
-</script>
+                    $('.checkpw').on('blur',function(){
+                        if ($('#pswd').val() == $('#conPswd').val()) {
+                            $("#conPswd").css("color", "green");
+                            $("#btnSubmitNew").prop('disabled', false);
+                        }
+                        else
+                        {
+                            $("#conPswd").css("color", "red");
+                            $("#btnSubmitNew").prop('disabled', true);
+                        }
+                    });
+                });
+            </script>
 
 </body>
 </html>

@@ -18,15 +18,15 @@ public class MortgageApplicantVerificationController {
 	MortgageApplicantService mortgageApplicantService;
 
 	// Verify the Applicant application Number
-	@GetMapping(value = "/morgageaaplicant/{MortgageID}")
-	public MortgageApplicant showLoginPage(@PathVariable int MortgageID) {
-		return mortgageApplicantService.getApplicantByMortgageID(MortgageID);
+	@GetMapping(value = "/morgageaaplicant/{applicationNumber}")
+	public MortgageApplicant showLoginPage(@PathVariable String applicationNumber) {
+		return mortgageApplicantService.getApplicantByApplicationID(applicationNumber);
 		
 	}
 
-	@GetMapping(value = "/morgageaaplicantStatus/{MortgageID}")
-	public MortgageApplicant UpdateBrokerStatus(@PathVariable int MortgageID) {
-		return mortgageApplicantService.UpdateMortgageApplicant(MortgageID);
+	@GetMapping(value = "/morgageaaplicantStatus/{applicationNumber}")
+	public MortgageApplicant UpdateBrokerStatus(@PathVariable String applicationNumber) {
+		return mortgageApplicantService.UpdateMortgageApplicant(applicationNumber);
 		
 	}
 }

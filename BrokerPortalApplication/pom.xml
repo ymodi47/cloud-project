@@ -70,6 +70,11 @@
 
 		<!-- Optional, test for static content, bootstrap CSS -->
 		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.7</version>
+		</dependency>
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 <!-- 			<version>5.1.45</version> -->
@@ -105,8 +110,8 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					<fork>true</fork>
-					 <executable>C:\Program Files\Java\jdk1.8.0_191\bin\javac</executable>
+					<!--<fork>true</fork>
+					 <executable>C:\Program Files\Java\jdk1.8.0_191\bin\javac</executable>-->
                 </configuration>
 			</plugin>
 			<plugin>
