@@ -15,7 +15,7 @@ public class InsuranceportalApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(InsuranceportalApplication.class, args);
-		logger.trace("employerportal Application has been started..");
+		logger.trace("Insurance Application has been started..");
 	}
 	
 	@Override
