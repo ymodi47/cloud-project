@@ -1,6 +1,5 @@
 package com.macs.teamtwo.brokerportalapplication.controller;
 
-import java.util.UUID;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,14 +36,13 @@ public class RegistrationController {
 		    if(addedMortgageApplicant!=null)
 		    {
 		    	modelAndView.addObject("successMessage", "Application submitted Sucessfully");
-		    	modelAndView.addObject("applicationNumber", addedMortgageApplicant.getApplicationNumber());
 		    	
-		    	String brokerPort = env.getRequiredProperty("server.port");
-		    	String brokerIp = env.getRequiredProperty("serverIp");
-		    	String Link = "http://" +brokerIp+":"+brokerPort+"/morgageaaplicant/";
-		    	modelAndView.addObject("link",Link);
+//		    	String brokerPort = env.getRequiredProperty("server.port");
+//		    	String brokerIp = env.getRequiredProperty("serverIp");
+//		    	String Link = "http://" +brokerIp+":"+brokerPort+"/morgageaaplicant/";
+		    	//modelAndView.addObject("link",Link);
 		    } else {
-		    	modelAndView.addObject("errorMessage", "Something went Wrong...");
+		    	//modelAndView.addObject("errorMessage", "Something went Wrong...");
 		    }
 			modelAndView.setViewName("mortgageapplicationform");
 		return modelAndView;

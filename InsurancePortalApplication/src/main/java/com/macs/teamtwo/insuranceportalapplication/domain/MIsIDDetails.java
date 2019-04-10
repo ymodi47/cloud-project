@@ -8,50 +8,65 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "MIsIDDetails")
+@Table (name = "insurance")
 public class MIsIDDetails {
 	
 	@Id
-	@Column(name="MIsID")
+	@Column(name="misID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int MIsID;
+	private int misID;
 	
 
-	@Column(name="insuredvalue")
-	private double insuredvalue;
+	@Column(name="insured_value")
+	private double insured_value;
 
 
-	@Column(name="deductiblevalue")
-	private double deductiblevalue;
+	@Column(name="deductible_value")
+	private double deductible_value;
 	
 
 	public MIsIDDetails(){
 		
 	}
+
+
+	public int getMisID() {
+		return misID;
+	}
+
+
+	public void setMisID(int misID) {
+		this.misID = misID;
+	}
+
+
+	public double getInsured_value() {
+		return insured_value;
+	}
+
+
+	public void setInsured_value(double insured_value) {
+		this.insured_value = insured_value;
+	}
+
+
+	public double getDeductible_value() {
+		return deductible_value;
+	}
+
+
+	public void setDeductible_value(double deductible_value) {
+		this.deductible_value = deductible_value;
+	}
+
+
+	public MIsIDDetails(int misid, double insured_value, double deductible_value) {
+		super();
+		misID = misid;
+		this.insured_value = insured_value;
+		this.deductible_value = deductible_value;
+	}
 	
-	public double getInsuredvalue() {
-		return insuredvalue;
-	}
-
-
-	public void setInsuredvalue(double insuredvalue) {
-		this.insuredvalue = insuredvalue;
-	}
-
-	public int getMIsID() {
-		return MIsID;
-	}
-
-	public void setMIsID(int MIsID) {
-		this.MIsID = MIsID;
-	}
-
-	public double getDeductiblevalue() {
-		return deductiblevalue;
-	}
-
-	public void setDeductiblevalue(double deductiblevalue) {
-		this.deductiblevalue = deductiblevalue;
-	}
 	
+		
 }

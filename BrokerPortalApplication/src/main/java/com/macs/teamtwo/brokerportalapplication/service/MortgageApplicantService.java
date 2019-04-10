@@ -1,50 +1,51 @@
 package com.macs.teamtwo.brokerportalapplication.service;
 
-
-import java.util.Optional;
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.macs.teamtwo.brokerportalapplication.domain.MortgageApplicant;
 import com.macs.teamtwo.brokerportalapplication.repository.MortgageApplicantRepository;
 
 // employee service class
 @Service
 public class MortgageApplicantService {
-	
-	MortgageApplicantService()
-	{
-		
+
+	MortgageApplicantService() {
+
 	}
-	
+
 	@Autowired
 	private MortgageApplicantRepository mortgageApplicantRepository;
-	
-	// inserting employee
+
+	// inserting Applicant
 	public MortgageApplicant addMortgageApplicant(MortgageApplicant applicant) {
 		applicant.setApplicationStatus("Work In Progress");
-	    String applicationNumberUnique="App-"+UUID.randomUUID().toString();
-	    applicant.setApplicationNumber(applicationNumberUnique);
-		MortgageApplicant mortgageApplicant=mortgageApplicantRepository.save(applicant);
+		MortgageApplicant mortgageApplicant = mortgageApplicantRepository.save(applicant);
 		return mortgageApplicant;
 	}
 
 	// update employee
-		public MortgageApplicant UpdateMortgageApplicant(String ApplicationNumber) {
-			//applicant.setApplicationStatus("Done");
-			MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByApplicationNumber(ApplicationNumber);
-			
-			mortgageApplicant.setApplicationStatus("Verified!");
-			MortgageApplicant Applicant=mortgageApplicantRepository.save(mortgageApplicant);
-			return Applicant;
-		}
-	
-	public MortgageApplicant getApplicantByApplicationID(String ApplicationNumber) {
-		// TODO Auto-generated method stub
-		MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByApplicationNumber(ApplicationNumber);
+	public MortgageApplicant UpdateMortgageApplicantStatus(int applicantID) {
+		MortgageApplicant mortgageApplicant = mortgageApplicantRepository.getApplicantByapplicantID(applicantID);
+		mortgageApplicant.setApplicationStatus("Verified!");
+		MortgageApplicant Applicant = mortgageApplicantRepository.save(mortgageApplicant);
+		return Applicant;
+	}
+
+	// get Applicant detail by ApplicationID
+	public MortgageApplicant getApplicantDetails(int applicantID) {
+		MortgageApplicant mortgageApplicant = mortgageApplicantRepository.getApplicantByapplicantID(applicantID);
 		return mortgageApplicant;
 	}
-	
+
+	public MortgageApplicant UpdateMortgageApplicantDetailsAndStatus(int mortgageID, double insuredValue,
+			double deductiblevalue, double appraisalvalue) {
+		MortgageApplicant mortgageApplicant = mortgageApplicantRepository.getApplicantByapplicantID(mortgageID);
+		mortgageApplicant.setAppraisalvalue(appraisalvalue);
+		mortgageApplicant.setDeductiblevalue(deductiblevalue);
+		mortgageApplicant.setInsuredValue(insuredValue);
+		mortgageApplicant.setApplicationStatus("Verified!");
+		MortgageApplicant Applicant = mortgageApplicantRepository.save(mortgageApplicant);
+		return Applicant;
+	}
+
 }

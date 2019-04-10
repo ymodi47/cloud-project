@@ -1,14 +1,14 @@
 package com.macs.teamtwo.insuranceportalapplication.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.macs.teamtwo.insuranceportalapplication.domain.MIsIDDetails;
 import com.macs.teamtwo.insuranceportalapplication.service.InsuranceEvaluatorService;
 
-@Controller
+@RestController
 public class InsuranceAvailabilityConfirmationController {
 
 	@Autowired
@@ -18,10 +18,9 @@ public class InsuranceAvailabilityConfirmationController {
 	// of the property MortID and then it submits the appraisal to the INSinc by
 	// invoking the INSinc’s web service with
 	// parameters MortID and appraised $ value.
-	@GetMapping(value = "/insurancedetails/{MIsID}")
-	public MIsIDDetails constructQuote(@PathVariable int MIsID) {
-		// insuranceEvaluatorService.constructQuote(MIsID);
-		 return null;
+	@GetMapping(value = "/insurancedetails/{misID}")
+	public MIsIDDetails constructQuote(@PathVariable int misID) {
+		return insuranceEvaluatorService.constructQuote(misID);
 
 	}
 }

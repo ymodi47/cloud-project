@@ -36,49 +36,51 @@
             <div class="card">
                 <h5 class="card-header">Check application status</h5>
                 <div class="card-body">
-                    <form role="form" action="/login" method="post" autocomplete="off">
+                    <form role="form" action="/appraiservalue" method="post" autocomplete="off">
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Select MSID</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control" id="mSID" name="mSID" value='${param.mSID}'>
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" placeholder="Mortgage ID" value='${param.email}' name="mortgageid" type="text" autofocus required autocomplete="off" maxlength="255" >
+                            <input type="text" name="mortgageID" id="mortgageID" class="form-control" placeholder="Mortgage ID" required maxlength="255" autocomplete="off" value='${param.mortgageID}'>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="MBR Applicant Name" name="name" type="text" autofocus required autocomplete="off" maxlength="255" >
+                            <input type="text" name="applicantName" id="applicantName" class="form-control" placeholder="MBR Applicant Name" required maxlength="255" autocomplete="off" value='${param.applicantName}'>
                         </div>
-                            <c:if test="${not empty errorMessage}">
-                                <div class="alert alert-danger">
-                                    <strong>
-                                            ${errorMessage}
-                                    </strong>
-                                </div>
-                            </c:if>
-                            <c:if test="${not empty sucessMessage}">
-                                <div class="alert alert-danger">
+                        <div class="form-group">
+	                            <c:if test="${not empty errorMessage}">
+	                                <div class="alert alert-danger">
+	                                    <strong>
+	                                            ${errorMessage}
+	                                    </strong>
+	                                </div>
+	                            </c:if>
+	                            <c:if test="${not empty sucessMessage}">
+                                <div class="alert alert-success">
                                     <strong>
                                             ${sucessMessage}
                                     </strong>
                                 </div>
-                            </c:if>
-                        <center>
-                            <div class="form-group">
+                            </c:if>                           
+                         </div>
+						<div class="form-group">
+                                  <center>
                                 <input type="submit" class="btn btn-md btn-primary" value="${Login}">
-                            </div>
-                        </center>
-                        </div>
+                                </center>
+                         </div>
                     </form>
                 </div>
+               </div>
             </div>
         </div>
     </div>
-</div>
+
 </body>
 </html>
