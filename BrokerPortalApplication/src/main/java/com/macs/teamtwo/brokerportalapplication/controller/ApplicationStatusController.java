@@ -44,7 +44,7 @@ public class ApplicationStatusController {
 				return modelAndView	;
 
 			} else {
-				modelAndView.addObject("errorMessage", "Something went Wrong...");
+				modelAndView.addObject("errorMessage", "Applicant not found.");
 			}
 			modelAndView.setViewName("mortgageapplicationform");
 			return modelAndView;
