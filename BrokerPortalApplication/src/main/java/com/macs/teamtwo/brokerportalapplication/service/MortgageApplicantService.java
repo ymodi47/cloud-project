@@ -28,6 +28,7 @@ public class MortgageApplicantService {
 		MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByapplicantID(applicantID);
 		mortgageApplicant.setApplicationStatus("Employer verified and waiting for Appraisal value !");
 		MortgageApplicant Applicant = mortgageApplicantRepository.save(mortgageApplicant);
+		System.out.println("retruned from status update  : "+Applicant);
 		return Applicant;
 	}
 
@@ -52,7 +53,7 @@ public class MortgageApplicantService {
 			mortgageApplicant.setInsuredValue(insuredValue);
 			mortgageApplicant.setApplicationStatus("Final Verified from Insuraror!");
 			MortgageApplicant Applicant = mortgageApplicantRepository.save(mortgageApplicant);
-			return Applicant;
+			return  null;
 		}else
 		{
 			return null;

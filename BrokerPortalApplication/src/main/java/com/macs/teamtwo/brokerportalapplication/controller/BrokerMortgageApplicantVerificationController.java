@@ -18,21 +18,24 @@ public class BrokerMortgageApplicantVerificationController {
 	MortgageApplicantService mortgageApplicantService;
 
 	// Verify the Applicant application Number
-	@GetMapping(value = "/morgageaaplicant/{applicantID}")
+	@GetMapping(value = "/mortgageapplicant/{applicantID}")
 	public MortgageApplicant getApplicationStatus(@PathVariable int applicantID) {
-		return mortgageApplicantService.getApplicantDetails(applicantID);
+		MortgageApplicant mort=mortgageApplicantService.getApplicantDetails(applicantID);
+		System.out.println("retruned from here..."+mort);
+		return null;
 		
 	}
 
-	@GetMapping(value = "/morgageaaplicantStatus/{applicantID}")
+	@GetMapping(value = "/mortgageapplicantstatus/{applicantID}")
 	public MortgageApplicant UpdateBrokerStatus(@PathVariable int applicantID) {
-		return mortgageApplicantService.UpdateMortgageApplicantStatus(applicantID);
+		MortgageApplicant mort=mortgageApplicantService.UpdateMortgageApplicantStatus(applicantID);
+		System.out.println("returned from Broker... "+mort);
+		return null;
 		
 	}
 	
 	@GetMapping(value = "/submitvaluefrominc/{mortgageID}/{insuredValue}/{MsID}/{deductiblevalue}/{appraisedValue}")
 	public MortgageApplicant veriFyDetailsAndPrepareDocument(@PathVariable int mortgageID,@PathVariable double insuredValue,@PathVariable int MsID,@PathVariable double deductiblevalue,@PathVariable double appraisedValue) {
-		//now MBR has to verify the details and prepare the document
 		MortgageApplicant mort=mortgageApplicantService.UpdateMortgageApplicantDetailsAndStatus(mortgageID,appraisedValue,insuredValue,deductiblevalue);
 		return mort;
 	}

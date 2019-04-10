@@ -39,7 +39,6 @@ public class ApplicationStatusController {
 			if(addedMortgageApplicant!=null)
 			{
 				modelAndView.addObject("successMessage", "Application status is  : "+addedMortgageApplicant.getApplicationStatus());
-				//modelAndView.addObject("applicationStatus",addedMortgageApplicant.getApplicationStatus());
 				modelAndView.setViewName("mortgageapplicationform");
 				return modelAndView	;
 

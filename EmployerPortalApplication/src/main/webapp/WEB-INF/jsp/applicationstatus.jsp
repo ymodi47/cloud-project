@@ -43,10 +43,10 @@
 		                                    </strong>
 		                                </div>
 		                            </c:if>
-		                            <c:if test="${not empty sucessMessage}">
-		                                <div class="alert alert-danger">
+		                            <c:if test="${not empty successMessage}">
+		                                <div class="alert alert-success">
 		                                    <strong>
-		                                        ${sucessMessage}
+		                                        ${successMessage}
 		                                    </strong>
 		                                </div>
 		                                

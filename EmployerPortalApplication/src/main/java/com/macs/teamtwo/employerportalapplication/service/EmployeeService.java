@@ -12,7 +12,6 @@ import com.macs.teamtwo.employerportalapplication.repository.EmployeeRepository;
 @Service
 public class EmployeeService {
 
-	String brokerPortal = Config.getProperty("brokerPortal");
 
 	EmployeeService() {
 
@@ -20,8 +19,6 @@ public class EmployeeService {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
-
-	// get employee by email id and password
 	public Employee getEmployeeByEmailAndPassword(String email, String password) {
 		Employee employee = employeeRepository.getEmployeeByEmailAndPassword(email, password);
 		return employee;
@@ -30,7 +27,7 @@ public class EmployeeService {
 	// get employee by email id and password
 	public Boolean getEmployeeByApplicationNumber(String applicationNumber, String link) {
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.getForObject(link + applicationNumber, MortgageApplicant.class);
+		restTemplate.getForObject(link.trim()+ applicationNumber.trim(),String.class);
 		System.out.println("returned sucessfully.");
 		return true;
 	}

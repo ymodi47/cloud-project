@@ -39,7 +39,7 @@ public class RegistrationController {
 			String broker_portal =Config.getProperty("insurancePortalCloudUrl");
 			//String cloudhardCodeBrokerUrl="https://brokerportalteam2.azurewebsites.net";
 			String localhostHardCode="http://localhost:8086";
-			String Link = localhostHardCode+"/morgageaaplicant/";
+			String Link = localhostHardCode+"/mortgageapplicant/";
 			System.out.println(" Link to be used by employer :"+Link);
 			modelAndView.addObject("link",Link);
 			modelAndView.addObject("MortageID",addedMortgageApplicant.getApplicantID());
