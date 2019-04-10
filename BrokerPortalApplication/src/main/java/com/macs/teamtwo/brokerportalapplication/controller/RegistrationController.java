@@ -21,7 +21,7 @@ public class RegistrationController {
 
 	@Autowired
 	private Environment env;
-	
+
 	// show registration
 	@RequestMapping(value = "/mortgageapplicationform", method = RequestMethod.GET)
 	public ModelAndView showSignUpPage(ModelAndView modelAndView) {
@@ -32,20 +32,26 @@ public class RegistrationController {
 	// Process form input data
 	@RequestMapping(value = "/mortgageapplicationform", method = RequestMethod.POST)
 	public ModelAndView processRegistrationForm(ModelAndView modelAndView, @Valid MortgageApplicant mortgageApplicant) {
-		    
-		    MortgageApplicant addedMortgageApplicant=mortgageApplicantService.addMortgageApplicant(mortgageApplicant);
-		    if(addedMortgageApplicant!=null)
-		    {
-		    	modelAndView.addObject("successMessage", "Application submitted Sucessfully");
-		    	
-//		    	String brokerPort = env.getRequiredProperty("server.port");
-//		    	String brokerIp = env.getRequiredProperty("serverIp");
-//		    	String Link = "http://" +brokerIp+":"+brokerPort+"/morgageaaplicant/";
-		    	//modelAndView.addObject("link",Link);
-		    } else {
-		    	//modelAndView.addObject("errorMessage", "Something went Wrong...");
-		    }
-			modelAndView.setViewName("mortgageapplicationform");
+
+		MortgageApplicant addedMortgageApplicant=mortgageApplicantService.addMortgageApplicant(mortgageApplicant);
+		if(addedMortgageApplicant!=null)
+		{
+			modelAndView.addObject("successMessage", "Application submitted Sucessfully");
+
+			String brokerPort = env.getRequiredProperty("server.port");
+			String brokerIp = env.getRequiredProperty("serverIp");
+			String Link = "http://" +brokerIp+":"+brokerPort+"/morgageaaplicant/";
+			modelAndView.addObject("link",Link);
+			modelAndView.addObject("MortageID",addedMortgageApplicant.getApplicantID());
+			modelAndView.addObject("applicantName",addedMortgageApplicant.getapplicantName());
+			modelAndView.addObject("mortVal",addedMortgageApplicant.getMortgageValue());
+			modelAndView.addObject("mortID",addedMortgageApplicant.getmSID());
+			modelAndView.addObject("empname",addedMortgageApplicant.getEmployerName());
+
+		} else {
+			//modelAndView.addObject("errorMessage", "Something went Wrong...");
+		}
+		modelAndView.setViewName("mortgageapplicationform");
 		return modelAndView;
 	}
 
