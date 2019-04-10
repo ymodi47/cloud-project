@@ -1,6 +1,8 @@
 package com.macs.teamtwo.brokerportalapplication.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,7 +22,7 @@ public class ApplicationStatusController {
 	
 	// show application status page
 	@RequestMapping(value = "/applicationstatus", method = RequestMethod.GET)
-	public String showLoginPage(ModelMap model) {
+	public String showLoginPage(ModelMap model,HttpSession session) {
 		return "applicationstatus";
 	}
 

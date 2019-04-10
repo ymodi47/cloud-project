@@ -34,6 +34,10 @@ public class MortgageApplicantService {
 	// get Applicant detail by ApplicationID
 	public MortgageApplicant getApplicantDetails(int applicantID) {
 		MortgageApplicant mortgageApplicant = mortgageApplicantRepository.getApplicantByapplicantID(applicantID);
+		if(mortgageApplicant!=null)
+		{
+			UpdateMortgageApplicantStatus(applicantID);
+		}
 		return mortgageApplicant;
 	}
 
@@ -41,12 +45,20 @@ public class MortgageApplicantService {
 	public MortgageApplicant UpdateMortgageApplicantDetailsAndStatus(int mortgageID, double insuredValue,
 			double deductiblevalue, double appraisalvalue) {
 		MortgageApplicant mortgageApplicant = mortgageApplicantRepository.getApplicantByapplicantID(mortgageID);
-		mortgageApplicant.setAppraisalvalue(appraisalvalue);
-		mortgageApplicant.setDeductiblevalue(deductiblevalue);
-		mortgageApplicant.setInsuredValue(insuredValue);
-		mortgageApplicant.setApplicationStatus("Final Verified!");
-		MortgageApplicant Applicant = mortgageApplicantRepository.save(mortgageApplicant);
-		return Applicant;
+		if(mortgageApplicant!=null)
+		{
+			mortgageApplicant.setAppraisalvalue(appraisalvalue);
+			mortgageApplicant.setDeductiblevalue(deductiblevalue);
+			mortgageApplicant.setInsuredValue(insuredValue);
+			mortgageApplicant.setApplicationStatus("Final Verified!");
+			MortgageApplicant Applicant = mortgageApplicantRepository.save(mortgageApplicant);
+			return Applicant;
+		}else
+		{
+			return null;
+		}
+		
+		
 	}
 
 

@@ -34,7 +34,6 @@ public class BrokerMortgageApplicantVerificationController {
 	public MortgageApplicant veriFyDetailsAndPrepareDocument(@PathVariable int mortgageID,@PathVariable double insuredValue,@PathVariable int MsID,@PathVariable double deductiblevalue,@PathVariable double appraisedValue) {
 		//now MBR has to verify the details and prepare the document
 		mortgageApplicantService.UpdateMortgageApplicantDetailsAndStatus(mortgageID,appraisedValue,insuredValue,deductiblevalue);
-		System.out.println("values...from INC portal");
 		return null;
 		
 	}

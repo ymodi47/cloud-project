@@ -6,11 +6,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.macs.teamtwo.insuranceportalapplication.service.Config;
+
+
 
 @RestController
 public class InsurarMortgageApplicantVerificationController {
 	
-	public static final String MBR_PORTAL="http://localhost:8086/submitvaluefrominc/";
+	//brokerPortalCloudUrl
+	public static final String MBR_PORTAL=Config.getProperty("brokerPortalCloudUrl");
 
 	// Verify the Applicant application Number
 	@GetMapping(value = "/submitvaluefromre/{MortId}/{appraisalValue}/{MsID}")
@@ -30,7 +34,11 @@ public class InsurarMortgageApplicantVerificationController {
 			RestTemplate restTemplate = new RestTemplate();
 			/*MortgageApplicant applicant = */
 			//@GetMapping(value = "/submitvaluefrominc/{mortgageID}/{insuredValue}/{ MsID}/{deductiblevalue}/{appraisedValue}")
-			String brokerPortal=MBR_PORTAL+mortgageID+"/"+insuredValue+"/"+MsID+"/"+deductiblevalue+"/"+appraisalValue;
+			String hardCodeUrl="http://localhost:8086/";
+			//String hardCodeUrl="https://insuranceportalteam2.azurewebsites.net";
+			//String brokerPortal=MBR_PORTAL+mortgageID+"/"+insuredValue+"/"+MsID+"/"+deductiblevalue+"/"+appraisalValue;
+			String brokerPortal=hardCodeUrl+"/submitvaluefrominc/"+mortgageID+"/"+insuredValue+"/"+MsID+"/"+deductiblevalue+"/"+appraisalValue;
+			System.out.println("brokerPortal URL from Insuror : "+brokerPortal);
 			restTemplate.getForObject(brokerPortal, String.class);
 		    System.out.println("applicant : "+brokerPortal);
 				return false;

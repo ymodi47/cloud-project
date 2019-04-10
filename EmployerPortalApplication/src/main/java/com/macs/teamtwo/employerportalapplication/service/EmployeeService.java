@@ -11,37 +11,30 @@ import com.macs.teamtwo.employerportalapplication.repository.EmployeeRepository;
 // employee service class
 @Service
 public class EmployeeService {
-	
-	
-	String BrokerPort = Config.getProperty("BrokerPort");
-	String BrokerIp = Config.getProperty("BrokerIp");
-	
-	String URL_EMPLOYEE ="http://"+BrokerIp+":"+BrokerPort+"/morgageaaplicant/";	
-	
-	EmployeeService()
-	{
-		
+
+	String brokerPortal = Config.getProperty("brokerPortal");
+	// String BrokerIp = Config.getProperty("BrokerIp");
+
+	// String URL_EMPLOYEE ="http://"+BrokerIp+":"+BrokerPort+"/morgageaaplicant/";
+
+	EmployeeService() {
+
 	}
-	
+
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
+
 	// get employee by email id and password
-	public Employee getEmployeeByEmailAndPassword(String email,String password) {
-		Employee employee=employeeRepository.getEmployeeByEmailAndPassword(email, password);
+	public Employee getEmployeeByEmailAndPassword(String email, String password) {
+		Employee employee = employeeRepository.getEmployeeByEmailAndPassword(email, password);
 		return employee;
 	}
-	
-	    // get employee by email id and password
-		public Boolean getEmployeeByApplicationNumber(String applicationNumber,String link) {
-			RestTemplate restTemplate = new RestTemplate();
-	        MortgageApplicant applicant = restTemplate.getForObject(link+applicationNumber, MortgageApplicant.class);
-	        if (applicant != null) {
-	                System.out.println("Employee: " + applicant.getFirstName() + " - " + applicant.getLastName());
-	                String URL_BrokerUpdate ="http://"+BrokerIp+":"+BrokerPort+"/morgageaaplicantStatus/";
-	               restTemplate.getForObject(URL_BrokerUpdate+applicationNumber, MortgageApplicant.class);
-	                return true;
-	        }
-			return false;
-		}
+
+	// get employee by email id and password
+	public Boolean getEmployeeByApplicationNumber(String applicationNumber, String link) {
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.getForObject(link + applicationNumber, MortgageApplicant.class);
+		System.out.println("returned sucess fully.");
+		return true;
+	}
 }

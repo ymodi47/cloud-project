@@ -10,7 +10,9 @@ import com.macs.teamtwo.realstateportalapplication.repository.AppraiserValueEval
 @Service
 public class AppraiserValueEvaluatorService {
 
-	public static final String INSINC_PORTAL = "http://localhost:8085/submitvaluefromre/3/5/6";
+	//public static final String INSINC_PORTAL = "http://localhost:8085/submitvaluefromre/3/5/6";
+	
+	public static final String INSINC_PORTAL =Config.getProperty("insurancePortalCloudUrl");
 
 	AppraiserValueEvaluatorService() {
 
@@ -21,8 +23,7 @@ public class AppraiserValueEvaluatorService {
 
 	public MortgageApplicant getAppraiserValueByMortgageAndMSID(int mortgageID, int mSID) {
 		// pass this value to INSinc
-		MortgageApplicant Mort = appraiserValueEvaluatorRepository.getAppraserValueByMortgageIDAndMSID(mortgageID,
-				mSID);
+		MortgageApplicant Mort = appraiserValueEvaluatorRepository.getAppraserValueByMortgageIDAndMSID(mortgageID,mSID);
 		sendAppraisalDetailsTOINSinc(mortgageID, Mort.getAppraiserValue(), mSID);
 		return Mort;
 	}
@@ -30,7 +31,13 @@ public class AppraiserValueEvaluatorService {
 	// get employee by email id and password
 	public Boolean sendAppraisalDetailsTOINSinc(int mortgageID, double appraisalvalue, int mSID) {
 		RestTemplate restTemplate = new RestTemplate();
-		MortgageApplicant applicant = restTemplate.getForObject(INSINC_PORTAL, MortgageApplicant.class);
+		//{MortId}/{appraisalValue}/{MsID}
+		//String hardCodeUrl="https://brokerportalteam2.azurewebsites.net";
+		String hardCodeUrl="http://localhost:8085";
+		//String insuranceUrlWithParams=INSINC_PORTAL+"/"+mortgageID+"/"+appraisalvalue+"/"+mSID;
+		String insuranceUrlWithParams=hardCodeUrl+"/submitvaluefromre"+"/"+mortgageID+"/"+appraisalvalue+"/"+mSID;
+		System.out.println("insuranceUrlWithParams : " + insuranceUrlWithParams);
+		MortgageApplicant applicant = restTemplate.getForObject(insuranceUrlWithParams, MortgageApplicant.class);
 		System.out.println("applicant : " + applicant);
 		return false;
 	}

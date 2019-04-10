@@ -1,15 +1,16 @@
 package com.macs.teamtwo.brokerportalapplication.controller;
 
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.macs.teamtwo.brokerportalapplication.domain.MortgageApplicant;
+import com.macs.teamtwo.brokerportalapplication.service.Config;
 import com.macs.teamtwo.brokerportalapplication.service.MortgageApplicantService;
 
 @Controller
@@ -18,8 +19,7 @@ public class RegistrationController {
 	@Autowired
 	MortgageApplicantService mortgageApplicantService;
 
-	@Autowired
-	private Environment env;
+
 
 	// show registration
 	@RequestMapping(value = "/mortgageapplicationform", method = RequestMethod.GET)
@@ -30,16 +30,18 @@ public class RegistrationController {
 
 	// Process form input data
 	@RequestMapping(value = "/mortgageapplicationform", method = RequestMethod.POST)
-	public ModelAndView processRegistrationForm(ModelAndView modelAndView, @Valid MortgageApplicant mortgageApplicant) {
+	public ModelAndView processRegistrationForm(ModelAndView modelAndView, @Valid MortgageApplicant mortgageApplicant,HttpSession session) {
 
 		MortgageApplicant addedMortgageApplicant=mortgageApplicantService.addMortgageApplicant(mortgageApplicant);
 		if(addedMortgageApplicant!=null)
 		{
 			modelAndView.addObject("successMessage", "Application submitted Sucessfully");
-
-			String brokerPort = env.getRequiredProperty("server.port");
-			String brokerIp = env.getRequiredProperty("serverIp");
-			String Link = "http://" +brokerIp+":"+brokerPort+"/morgageaaplicant/";
+			String broker_portal =Config.getProperty("insurancePortalCloudUrl");
+			String cloudhardCodeBrokerUrl="https://brokerportalteam2.azurewebsites.net";
+			String localhostHardCode="http://localhost:8086";
+			//String Link = cloudhardCodeBrokerUrl+"/morgageaaplicant/";
+			String Link = localhostHardCode+"/morgageaaplicant/";
+			System.out.println(" Link to be used by employer :"+Link);
 			modelAndView.addObject("link",Link);
 			modelAndView.addObject("MortageID",addedMortgageApplicant.getApplicantID());
 			modelAndView.addObject("applicantName",addedMortgageApplicant.getapplicantName());
@@ -54,4 +56,6 @@ public class RegistrationController {
 		return modelAndView;
 	}
 
+	
+	
 }
