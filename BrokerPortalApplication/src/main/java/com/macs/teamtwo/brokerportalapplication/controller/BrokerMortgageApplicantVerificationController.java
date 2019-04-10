@@ -33,7 +33,7 @@ public class BrokerMortgageApplicantVerificationController {
 	@GetMapping(value = "/submitvaluefrominc/{mortgageID}/{insuredValue}/{MsID}/{deductiblevalue}/{appraisedValue}")
 	public MortgageApplicant veriFyDetailsAndPrepareDocument(@PathVariable int mortgageID,@PathVariable double insuredValue,@PathVariable int MsID,@PathVariable double deductiblevalue,@PathVariable double appraisedValue) {
 		//now MBR has to verify the details and prepare the document
-		mortgageApplicantService.UpdateMortgageApplicantDetailsAndStatus(mortgageID,appraisedValue,insuredValue,deductiblevalue);
+		MortgageApplicant mort=mortgageApplicantService.UpdateMortgageApplicantDetailsAndStatus(mortgageID,appraisedValue,insuredValue,deductiblevalue);
 		return null;
 		
 	}

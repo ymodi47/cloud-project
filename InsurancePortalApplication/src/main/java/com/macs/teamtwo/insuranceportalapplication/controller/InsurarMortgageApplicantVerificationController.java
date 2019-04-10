@@ -39,9 +39,18 @@ public class InsurarMortgageApplicantVerificationController {
 			//String brokerPortal=MBR_PORTAL+mortgageID+"/"+insuredValue+"/"+MsID+"/"+deductiblevalue+"/"+appraisalValue;
 			String brokerPortal=hardCodeUrl+"/submitvaluefrominc/"+mortgageID+"/"+insuredValue+"/"+MsID+"/"+deductiblevalue+"/"+appraisalValue;
 			System.out.println("brokerPortal URL from Insuror : "+brokerPortal);
-			restTemplate.getForObject(brokerPortal, String.class);
-		    System.out.println("applicant : "+brokerPortal);
-				return false;
+			String value=restTemplate.getForObject(brokerPortal, String.class);
+			if(value==null)
+			{
+				
+				 System.out.println("Could not be verified : "+brokerPortal);
+				 return false;
+				
+			}else
+			{
+				return true;
+			}
+				
 		}
 
 	

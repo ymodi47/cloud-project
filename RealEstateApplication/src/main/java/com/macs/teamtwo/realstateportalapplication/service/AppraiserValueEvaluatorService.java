@@ -31,14 +31,12 @@ public class AppraiserValueEvaluatorService {
 	// get employee by email id and password
 	public Boolean sendAppraisalDetailsTOINSinc(int mortgageID, double appraisalvalue, int mSID) {
 		RestTemplate restTemplate = new RestTemplate();
-		//{MortId}/{appraisalValue}/{MsID}
 		//String hardCodeUrl="https://brokerportalteam2.azurewebsites.net";
 		String hardCodeUrl="http://localhost:8085";
-		//String insuranceUrlWithParams=INSINC_PORTAL+"/"+mortgageID+"/"+appraisalvalue+"/"+mSID;
 		String insuranceUrlWithParams=hardCodeUrl+"/submitvaluefromre"+"/"+mortgageID+"/"+appraisalvalue+"/"+mSID;
 		System.out.println("insuranceUrlWithParams : " + insuranceUrlWithParams);
 		MortgageApplicant applicant = restTemplate.getForObject(insuranceUrlWithParams, MortgageApplicant.class);
-		System.out.println("applicant : " + applicant);
+		System.out.println("applicant : " + applicant);		
 		return false;
 	}
 
