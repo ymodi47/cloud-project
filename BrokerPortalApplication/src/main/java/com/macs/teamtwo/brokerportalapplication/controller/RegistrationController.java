@@ -37,9 +37,8 @@ public class RegistrationController {
 		{
 			modelAndView.addObject("successMessage", "Application submitted Sucessfully");
 			String broker_portal =Config.getProperty("insurancePortalCloudUrl");
-			String cloudhardCodeBrokerUrl="https://brokerportalteam2.azurewebsites.net";
+			//String cloudhardCodeBrokerUrl="https://brokerportalteam2.azurewebsites.net";
 			String localhostHardCode="http://localhost:8086";
-			//String Link = cloudhardCodeBrokerUrl+"/morgageaaplicant/";
 			String Link = localhostHardCode+"/morgageaaplicant/";
 			System.out.println(" Link to be used by employer :"+Link);
 			modelAndView.addObject("link",Link);
@@ -50,6 +49,7 @@ public class RegistrationController {
 			modelAndView.addObject("empname",addedMortgageApplicant.getEmployerName());
 
 		} else {
+			
 			//modelAndView.addObject("errorMessage", "Something went Wrong...");
 		}
 		modelAndView.setViewName("mortgageapplicationform");

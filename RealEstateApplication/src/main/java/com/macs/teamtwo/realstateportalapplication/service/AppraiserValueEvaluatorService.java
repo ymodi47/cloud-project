@@ -31,8 +31,8 @@ public class AppraiserValueEvaluatorService {
 	// get employee by email id and password
 	public Boolean sendAppraisalDetailsTOINSinc(int mortgageID, double appraisalvalue, int mSID) {
 		RestTemplate restTemplate = new RestTemplate();
-		String hardCodeUrl="https://insuranceportalteam2.azurewebsites.net";
-		//String hardCodeUrl="http://localhost:8085";
+		//String hardCodeUrl="https://insuranceportalteam2.azurewebsites.net";
+		String hardCodeUrl="http://localhost:8085";
 		String insuranceUrlWithParams=hardCodeUrl+"/submitvaluefromre"+"/"+mortgageID+"/"+appraisalvalue+"/"+mSID;
 		System.out.println("insuranceUrlWithParams : " + insuranceUrlWithParams);
 		MortgageApplicant applicant = restTemplate.getForObject(insuranceUrlWithParams, MortgageApplicant.class);

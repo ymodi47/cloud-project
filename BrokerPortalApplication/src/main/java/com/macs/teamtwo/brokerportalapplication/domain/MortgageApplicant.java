@@ -28,9 +28,17 @@ public class MortgageApplicant {
 	@Column(name="employerName")
 	private String employerName;
 	
-	@Column(name="Pswd")
-	private String Pswd;
+	@Column(name="password")
+	private String password;
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Column(name="ApplicationStatus")
 	private String ApplicationStatus;
 	
@@ -127,27 +135,21 @@ public class MortgageApplicant {
 		this.employerName = employerName;
 	}
 
-	public String getPswd() {
-		return Pswd;
-	}
-
-	public void setPswd(String pswd) {
-		Pswd = pswd;
-	}
+	
 
 	public MortgageApplicant(){
 		
 	}
 
 	public MortgageApplicant(int applicantID, String applicantName, double mortgageValue, int mSID,
-			String employerName, String pswd, String applicationStatus) {
+			String employerName, String password, String applicationStatus) {
 		super();
 		this.applicantID = applicantID;
 		this.applicantName = applicantName;
 		MortgageValue = mortgageValue;
 		this.mSID = mSID;
 		this.employerName = employerName;
-		Pswd = pswd;
+		this.password = password;
 		ApplicationStatus = applicationStatus;
 	}
 }

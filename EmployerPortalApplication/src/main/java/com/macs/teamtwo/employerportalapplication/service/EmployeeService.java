@@ -13,9 +13,6 @@ import com.macs.teamtwo.employerportalapplication.repository.EmployeeRepository;
 public class EmployeeService {
 
 	String brokerPortal = Config.getProperty("brokerPortal");
-	// String BrokerIp = Config.getProperty("BrokerIp");
-
-	// String URL_EMPLOYEE ="http://"+BrokerIp+":"+BrokerPort+"/morgageaaplicant/";
 
 	EmployeeService() {
 
@@ -34,7 +31,7 @@ public class EmployeeService {
 	public Boolean getEmployeeByApplicationNumber(String applicationNumber, String link) {
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.getForObject(link + applicationNumber, MortgageApplicant.class);
-		System.out.println("returned sucess fully.");
+		System.out.println("returned sucessfully.");
 		return true;
 	}
 }

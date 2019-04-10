@@ -19,7 +19,7 @@ public class BrokerMortgageApplicantVerificationController {
 
 	// Verify the Applicant application Number
 	@GetMapping(value = "/morgageaaplicant/{applicantID}")
-	public MortgageApplicant showLoginPage(@PathVariable int applicantID) {
+	public MortgageApplicant getApplicationStatus(@PathVariable int applicantID) {
 		return mortgageApplicantService.getApplicantDetails(applicantID);
 		
 	}

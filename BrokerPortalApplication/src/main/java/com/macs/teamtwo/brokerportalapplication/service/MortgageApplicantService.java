@@ -60,6 +60,12 @@ public class MortgageApplicantService {
 		
 		
 	}
+	
+	   //gt Application Status
+		public MortgageApplicant getApplicationStatus(int applicationId , String Password) {
+			MortgageApplicant mortgageApplicant= mortgageApplicantRepository.getApplicantByapplicantIDAndPassword(applicationId,Password);
+			return mortgageApplicant;
+		}
 
 
 }
