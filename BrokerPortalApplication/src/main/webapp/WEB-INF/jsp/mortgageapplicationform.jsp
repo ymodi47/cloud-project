@@ -13,6 +13,35 @@
 	<%@include file="js/custom.js"%>
 </script>
 
+<script>
+    $(document).ready(function(){
+        $('#pwalert').hide();
+        $("#oldUser").hide();
+        $(".formBtn").on('click',function () {
+            $("#oldUser").toggle();
+            $("#newUser").toggle();
+        });
+        $("#appStatusBtn").on('click',function () {
+            window.location.href="/applicationstatus";
+        });
+
+        $('form[name="mortgageForm"]').submit(function(){
+            if ($('#Pswd').val() != $('#conPswd').val()) {
+                // $("#conPswd").css("color", "green");
+                // $("#btnSubmitNew").prop('disabled', false);
+                $('#pwalert').show();
+                $("#pwalert").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#pwalert").slideUp(500);
+                });
+                return false;
+            }
+        });
+
+    });
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/superagent/2.2.0/superagent.min.js"></script>
+
+
 <html>
 <head>
 	<title>Registration</title>
@@ -26,8 +55,6 @@
 <nav class="navbar navbar-dark bg-primary">
 	<a class="navbar-brand" href="/mortgageapplicationform">Broker
 		Portal</a>
-	<button class="btn btn-outline-success" id="appStatusBtn"
-			type="button">Application Status</button>
 </nav>
 
 <div class="container" style="margin-top: 20px">
@@ -37,6 +64,19 @@
 				Password didn't match! Please check password and confirm password
 			</div>
 		</div>
+        <c:if test="${not empty statusMessage}">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert" role="alert">
+                <p>${statusMessage}</p>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#newUser").hide();
+                $("#oldUser").show();
+            });
+        </script>
+        </c:if>
 		<c:if test="${not empty link}">
 
 			<div class="col-md-12">
@@ -107,7 +147,7 @@
 
 							<div class="form-group">
 								<select id="mSID" name ="mSID"
-										class="form-control" value='${param.mSID}'>
+										class="form-control" value='${param.mSID}' required>
 									<option value="">MSID</option>
 									<option value="1">ms1</option>
 									<option value="2">ms2</option>
@@ -200,44 +240,10 @@
 							</div>
 						</c:if>
 					</div>
-                    <div class="panel-footer">
-						<c:if test="${not empty successMessage}">
-							<div class="alert alert-sucess">
-								<strong> ${successMessage} </strong>
-							</div>
-						</c:if>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script>
-		$(document).ready(function(){
-			$('#pwalert').hide();
-			$("#oldUser").hide();
-			$(".formBtn").on('click',function () {
-				$("#oldUser").toggle();
-				$("#newUser").toggle();
-			});
-			$("#appStatusBtn").on('click',function () {
-				window.location.href="/applicationstatus";
-			});
-
-			$('form[name="mortgageForm"]').submit(function(){
-				if ($('#Pswd').val() != $('#conPswd').val()) {
-					// $("#conPswd").css("color", "green");
-					// $("#btnSubmitNew").prop('disabled', false);
-					$('#pwalert').show();
-					$("#pwalert").fadeTo(2000, 500).slideUp(500, function () {
-						$("#pwalert").slideUp(500);
-					});
-					return false;
-				}
-			});
-
-		});
-	</script>
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/superagent/2.2.0/superagent.min.js"></script>
-
+</div>
 </body>
 </html>

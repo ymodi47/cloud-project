@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.macs.teamtwo.brokerportalapplication.domain.MortgageApplicant;
-import com.macs.teamtwo.brokerportalapplication.service.Config;
 import com.macs.teamtwo.brokerportalapplication.service.MortgageApplicantService;
 
 
@@ -38,7 +37,8 @@ public class ApplicationStatusController {
 			MortgageApplicant addedMortgageApplicant=mortgageApplicantService.getApplicationStatus(mortgageApplicant.getApplicantID(), mortgageApplicant.getPassword());
 			if(addedMortgageApplicant!=null)
 			{
-				modelAndView.addObject("successMessage", "Application status is  : "+addedMortgageApplicant.getApplicationStatus());
+
+				modelAndView.addObject("statusMessage", "Application status is  : "+addedMortgageApplicant.getApplicationStatus());
 				modelAndView.setViewName("mortgageapplicationform");
 				return modelAndView	;
 
