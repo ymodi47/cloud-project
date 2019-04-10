@@ -9,9 +9,9 @@ import com.macs.teamtwo.brokerportalapplication.repository.MortgageApplicantRepo
 @Service
 public class MortgageApplicantService {
 
-	MortgageApplicantService() {
 
-	}
+	MortgageApplicantService() {}
+
 
 	@Autowired
 	private MortgageApplicantRepository mortgageApplicantRepository;
@@ -25,8 +25,8 @@ public class MortgageApplicantService {
 
 	// update employee
 	public MortgageApplicant UpdateMortgageApplicantStatus(int applicantID) {
-		MortgageApplicant mortgageApplicant = mortgageApplicantRepository.getApplicantByapplicantID(applicantID);
-		mortgageApplicant.setApplicationStatus("Verified!");
+		MortgageApplicant mortgageApplicant=mortgageApplicantRepository.getApplicantByapplicantID(applicantID);
+		mortgageApplicant.setApplicationStatus("Employer verified and waiting for Appraisal value !");
 		MortgageApplicant Applicant = mortgageApplicantRepository.save(mortgageApplicant);
 		return Applicant;
 	}
@@ -37,15 +37,17 @@ public class MortgageApplicantService {
 		return mortgageApplicant;
 	}
 
+
 	public MortgageApplicant UpdateMortgageApplicantDetailsAndStatus(int mortgageID, double insuredValue,
 			double deductiblevalue, double appraisalvalue) {
 		MortgageApplicant mortgageApplicant = mortgageApplicantRepository.getApplicantByapplicantID(mortgageID);
 		mortgageApplicant.setAppraisalvalue(appraisalvalue);
 		mortgageApplicant.setDeductiblevalue(deductiblevalue);
 		mortgageApplicant.setInsuredValue(insuredValue);
-		mortgageApplicant.setApplicationStatus("Verified!");
+		mortgageApplicant.setApplicationStatus("Final Verified!");
 		MortgageApplicant Applicant = mortgageApplicantRepository.save(mortgageApplicant);
 		return Applicant;
 	}
+
 
 }

@@ -54,11 +54,10 @@
 		                 
 		                    <form role="form" action="/applicationstatus" method="post" autocomplete="off">
 		                            <div class="form-group">
-		                                    <input class="form-control" placeholder="Mortage ID" value="" name="link" type="text" autofocus required autocomplete="off" maxlength="255" >
+		                                    <input class="form-control" placeholder="Mortage ID" value="" name="applicationNumber" type="text" autofocus required autocomplete="off" maxlength="255" >
 		                            </div>
 		                            <div class="form-group">
-
-		                                    <input class="form-control" placeholder="Mortage Link" name="applicationNumber" type="text" value="" autocomplete="off" required maxlength="255">
+			                            <input class="form-control" placeholder="Mortage Link" name="link" type="text" value="" autocomplete="off" required maxlength="255">
 		                            </div>
 
 									<center>
