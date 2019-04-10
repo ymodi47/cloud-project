@@ -147,7 +147,7 @@
 
 							<div class="form-group">
 								<select id="mSID" name ="mSID"
-										class="form-control" value='${param.mSID}'>
+										class="form-control" value='${param.mSID}' required>
 									<option value="">MSID</option>
 									<option value="1">ms1</option>
 									<option value="2">ms2</option>
