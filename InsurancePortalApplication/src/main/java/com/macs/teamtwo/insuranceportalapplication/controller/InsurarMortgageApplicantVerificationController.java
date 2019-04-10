@@ -34,8 +34,8 @@ public class InsurarMortgageApplicantVerificationController {
 			RestTemplate restTemplate = new RestTemplate();
 			/*MortgageApplicant applicant = */
 			//@GetMapping(value = "/submitvaluefrominc/{mortgageID}/{insuredValue}/{ MsID}/{deductiblevalue}/{appraisedValue}")
-			String hardCodeUrl="http://localhost:8086/";
-			//String hardCodeUrl="https://insuranceportalteam2.azurewebsites.net";
+			//String hardCodeUrl="http://localhost:8086/";
+			String hardCodeUrl="https://insuranceportalteam2.azurewebsites.net";
 			//String brokerPortal=MBR_PORTAL+mortgageID+"/"+insuredValue+"/"+MsID+"/"+deductiblevalue+"/"+appraisalValue;
 			String brokerPortal=hardCodeUrl+"/submitvaluefrominc/"+mortgageID+"/"+insuredValue+"/"+MsID+"/"+deductiblevalue+"/"+appraisalValue;
 			System.out.println("brokerPortal URL from Insuror : "+brokerPortal);

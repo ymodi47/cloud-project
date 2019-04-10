@@ -34,7 +34,6 @@ public class BrokerMortgageApplicantVerificationController {
 	public MortgageApplicant veriFyDetailsAndPrepareDocument(@PathVariable int mortgageID,@PathVariable double insuredValue,@PathVariable int MsID,@PathVariable double deductiblevalue,@PathVariable double appraisedValue) {
 		//now MBR has to verify the details and prepare the document
 		MortgageApplicant mort=mortgageApplicantService.UpdateMortgageApplicantDetailsAndStatus(mortgageID,appraisedValue,insuredValue,deductiblevalue);
-		return null;
-		
+		return mort;
 	}
 }
