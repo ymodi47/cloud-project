@@ -38,9 +38,10 @@ public class ApplicationStatusController {
 			MortgageApplicant addedMortgageApplicant=mortgageApplicantService.getApplicationStatus(mortgageApplicant.getApplicantID(), mortgageApplicant.getPassword());
 			if(addedMortgageApplicant!=null)
 			{
-				modelAndView.addObject("successMessage", "Application submitted Sucessfully");
-				modelAndView.addObject("applicationStatus",addedMortgageApplicant.getApplicationStatus());
-				
+				modelAndView.addObject("successMessage", "Application status is  : "+addedMortgageApplicant.getApplicationStatus());
+				//modelAndView.addObject("applicationStatus",addedMortgageApplicant.getApplicationStatus());
+				modelAndView.setViewName("mortgageapplicationform");
+				return modelAndView	;
 
 			} else {
 				modelAndView.addObject("errorMessage", "Something went Wrong...");

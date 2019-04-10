@@ -31,22 +31,6 @@
 </nav>
 
 <div class="container" style="margin-top: 20px">
-	<%-- <c:if test="${not empty successMessage}"> --%>
-	<!-- <div class="alert alert-success" role="alert"> -->
-	<%--   <a href="#" class="alert-link">${successMessage}!! Your Application number is ${applicationNumber} and link is ${link}.</a> --%>
-	<!--   <script type="text/javascript"> -->
-	<!--   document.mortgageForm.reset(); -->
-	<!--   </script> -->
-	<!-- </div> -->
-	<%-- </c:if> --%>
-	<%-- <c:if test="${not empty errorMessage}"> --%>
-	<!--                             <div class="alert alert-danger" role="alert"> -->
-	<!--                                 <strong> -->
-	<%--                                         ${errorMessage} --%>
-	<!--                                 </strong> -->
-	<!--                             </div> -->
-	<%--                         </c:if> --%>
-
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-danger show" id="pwalert" role="alert">
@@ -139,9 +123,9 @@
 									   maxlength="255" value='${param.employerName}'>
 							</div>
 							<div class="form-group">
-								<input type="password" name="Pswd" id="Pswd"
+								<input type="password" name="password" id="Pswd"
 									   class="form-control checkpw" placeholder="Password" required
-									   maxlength="15" value='${param.Pswd}'>
+									   maxlength="15" value='${param.password}'>
 							</div>
 							<div class="form-group">
 								<input type="password" name="conPswd" id="conPswd"
@@ -178,14 +162,14 @@
 				<div class="card-body">
 
 					<div class="panel-body">
-						<form role="form" action="/login" method="post" autocomplete="off">
+						<form role="form" action="/applicationstatus" method="post" autocomplete="off">
 							<div class="col-sm-12 col-md-10 col-md-offset-1 ">
 								<div class="form-group">
 									<div class="input-group">
 											<span class="input-group-addon"> <i
 													class="glyphicon glyphicon-user"></i>
-											</span> <input class="form-control" placeholder="Mortgage ID"
-														   value='${param.MortgageId}' name="MortgageId" type="text"
+											</span> <input class="form-control" placeholder="Mortgage ID" id="applicantID"
+														   value='${param.applicantID}' name="applicantID" type="text"
 														   required autocomplete="off" maxlength="255">
 									</div>
 								</div>
@@ -216,7 +200,13 @@
 							</div>
 						</c:if>
 					</div>
-
+                    <div class="panel-footer">
+						<c:if test="${not empty successMessage}">
+							<div class="alert alert-sucess">
+								<strong> ${successMessage} </strong>
+							</div>
+						</c:if>
+					</div>
 				</div>
 			</div>
 		</div>
