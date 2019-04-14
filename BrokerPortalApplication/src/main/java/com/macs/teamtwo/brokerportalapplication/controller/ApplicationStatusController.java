@@ -1,6 +1,5 @@
 package com.macs.teamtwo.brokerportalapplication.controller;
 
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -14,40 +13,37 @@ import org.springframework.web.servlet.ModelAndView;
 import com.macs.teamtwo.brokerportalapplication.domain.MortgageApplicant;
 import com.macs.teamtwo.brokerportalapplication.service.MortgageApplicantService;
 
-
-
 @Controller
 public class ApplicationStatusController {
 
 	@Autowired
 	MortgageApplicantService mortgageApplicantService;
 
-	
 	// show application status page
 	@RequestMapping(value = "/applicationstatus", method = RequestMethod.GET)
-	public String showLoginPage(ModelMap model,HttpSession session) {
+	public String showLoginPage(ModelMap model, HttpSession session) {
 		return "applicationstatus";
 	}
-	
-	
+
 	// Process form input data
-		@RequestMapping(value = "/applicationstatus", method = RequestMethod.POST)
-		public ModelAndView processRegistrationForm(ModelAndView modelAndView, @Valid MortgageApplicant mortgageApplicant,HttpSession session) {
+	@RequestMapping(value = "/applicationstatus", method = RequestMethod.POST)
+	public ModelAndView processRegistrationForm(ModelAndView modelAndView, @Valid MortgageApplicant mortgageApplicant,
+			HttpSession session) {
 
-			MortgageApplicant addedMortgageApplicant=mortgageApplicantService.getApplicationStatus(mortgageApplicant.getApplicantID(), mortgageApplicant.getPassword());
-			if(addedMortgageApplicant!=null)
-			{
+		MortgageApplicant addedMortgageApplicant = mortgageApplicantService
+				.getApplicationStatus(mortgageApplicant.getApplicantID(), mortgageApplicant.getPassword());
+		if (addedMortgageApplicant != null) {
 
-				modelAndView.addObject("statusMessage", "Application status is  : "+addedMortgageApplicant.getApplicationStatus());
-				modelAndView.setViewName("mortgageapplicationform");
-				return modelAndView	;
-
-			} else {
-				modelAndView.addObject("errorMessage", "Applicant not found.");
-			}
+			modelAndView.addObject("statusMessage",
+					"Application status is  : " + addedMortgageApplicant.getApplicationStatus());
 			modelAndView.setViewName("mortgageapplicationform");
 			return modelAndView;
-		}
 
+		} else {
+			modelAndView.addObject("errorMessage", "Applicant not found.");
+		}
+		modelAndView.setViewName("mortgageapplicationform");
+		return modelAndView;
+	}
 
 }

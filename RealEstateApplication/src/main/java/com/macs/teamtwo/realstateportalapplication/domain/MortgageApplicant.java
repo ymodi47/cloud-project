@@ -19,7 +19,7 @@ public class MortgageApplicant {
 	}
 	
 	
-	@Id
+	
 	@Column(name="mortgageID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int mortgageID;
@@ -30,6 +30,7 @@ public class MortgageApplicant {
 	@Column(name="appraiserValue")
 	private double appraiserValue;
 	
+	@Id
 	@Column(name="mSID")
 	private int mSID;
 	

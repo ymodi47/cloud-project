@@ -19,7 +19,7 @@ public class RealStateAppraisalRateEvaluatorRestController {
 	// Verify the Applicant application Number
 	@GetMapping(value = "/appraiservalue/{MortgageID}/{mSID}")
 	public MortgageApplicant appraiservalue(@PathVariable int MortgageID,@PathVariable int mSID) {
-		return appraiserValueEvaluatorService.getAppraiserValueByMortgageAndMSID(MortgageID,mSID);
+		return appraiserValueEvaluatorService.getAppraiserValueByMortgageAndMSID(MortgageID,mSID, null);
 	}
 
 	

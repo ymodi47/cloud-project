@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.macs.teamtwo.employerportalapplication.domain.Employee;
-import com.macs.teamtwo.employerportalapplication.domain.MortgageApplicant;
 import com.macs.teamtwo.employerportalapplication.repository.EmployeeRepository;
 
 // employee service class

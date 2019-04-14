@@ -59,7 +59,6 @@ public class MortgageApplicantService {
 			return null;
 		}
 		
-		
 	}
 	
 	   //gt Application Status

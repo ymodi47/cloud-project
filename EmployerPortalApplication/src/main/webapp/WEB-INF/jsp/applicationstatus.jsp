@@ -66,6 +66,10 @@
 		                            </div>
 									</center>
 		                    </form>
+		                    <div>
+		                     <a href="logout" onClick="login.jsp"> Logout</a> <br></br> 
+		                    </div>
+		                    
                      </div>
             </div>
         </div>
