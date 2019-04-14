@@ -34,7 +34,6 @@
 </style>
 <nav class="navbar navbar-dark bg-primary">
       <a class="navbar-brand" href="/login">Employee Portal</a>
-     <button class="btn btn-outline-success" id="appStatusBtn" type="button">Application Status</button>
 </nav>
 
 <div class="container" style="margin-top:40px">
@@ -75,12 +74,6 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-        $("#appStatusBtn").on('click',function () {
-            window.location.href="/applicationstatus";
-        });
-    });
-</script>
+
 </body>
 </html>

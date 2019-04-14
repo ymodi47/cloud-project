@@ -13,11 +13,6 @@ public class InsuranceAvailabilityConfirmationController {
 
 	@Autowired
 	InsuranceEvaluatorService insuranceEvaluatorService;
-
-	// Once the form is submitted, the RE organizes the appraisal
-	// of the property MortID and then it submits the appraisal to the INSinc by
-	// invoking the INSinc’s web service with
-	// parameters MortID and appraised $ value.
 	@GetMapping(value = "/insurancedetails/{misID}")
 	public MIsIDDetails constructQuote(@PathVariable int misID) {
 		return insuranceEvaluatorService.constructQuote(misID);

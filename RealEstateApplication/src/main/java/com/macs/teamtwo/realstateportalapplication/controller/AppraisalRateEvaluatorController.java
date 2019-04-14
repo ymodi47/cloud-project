@@ -2,6 +2,8 @@ package com.macs.teamtwo.realstateportalapplication.controller;
 
 
 import javax.validation.Valid;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,8 @@ import com.macs.teamtwo.realstateportalapplication.service.AppraiserValueEvaluat
 
 @Controller
 public class AppraisalRateEvaluatorController {
+	
+	private static final Logger logger = Logger.getLogger(AppraisalRateEvaluatorController.class);
 
 	@Autowired
 	AppraiserValueEvaluatorService appraiserValueEvaluatorService;

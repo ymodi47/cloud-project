@@ -16,19 +16,15 @@ public class InsurarMortgageApplicantVerificationController {
 	
 	final static Logger logger = Logger.getLogger(InsurarMortgageApplicantVerificationController.class);
 	
-	//brokerPortalCloudUrl
 	public static final String MBR_PORTAL=Config.getProperty("brokerPortalCloudUrl");
 
-	// Verify the Applicant application Number
 	@GetMapping(value = "/submitvaluefromre/{MortId}/{appraisalValue}/{MsID}")
 	public void processDetails(@PathVariable int MortId,@PathVariable double appraisalValue,@PathVariable int MsID) {
 		
-		//INSInc will work on this value and call MBR to return these values-
+		logger.info("Appraisal Value provided by Real Estate : "+appraisalValue+" for morgage ID and House ID is : "+MortId+","+MsID);
 		double deductiblevalue=appraisalValue*.03;
 		double insuredValue=appraisalValue*.08;
-		//get the details from real State Portal
 		sendAllDetailsToMBR(MortId,insuredValue,MsID, deductiblevalue,appraisalValue);
-		System.out.println("requested by ins portal");
 		
 	}
 	
@@ -38,9 +34,8 @@ public class InsurarMortgageApplicantVerificationController {
 			String hardCodeUrl="http://localhost:8086/";
 			logger.info("invoking MBR portal with Insurable and Deductible Value  "+insuredValue+" , "+deductiblevalue+"  "+appraisalValue);
 			String brokerPortal=MBR_PORTAL+"/submitvaluefrominc/"+mortgageID+"/"+insuredValue+"/"+MsID+"/"+deductiblevalue+"/"+appraisalValue;
-			System.out.println("brokerPortal URL from Insuror : "+brokerPortal);
 			String value=restTemplate.getForObject(brokerPortal, String.class);
-			logger.info("MBR portal invocation is done.");
+			logger.info("MBR portal invocation from Insurance is done.");
 			if(value==null)
 			{
 				

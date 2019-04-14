@@ -18,7 +18,6 @@ public class AppraiserValueEvaluatorService {
 
 	}
 
-
 	@Autowired
 	private AppraiserValueEvaluatorRepository appraiserValueEvaluatorRepository;
 
@@ -51,14 +50,11 @@ public class AppraiserValueEvaluatorService {
 
 	private double generateRandomAppraiserValue()
 	{
-		 Double min = 0.0; //  Set To Your Desired Min Value
-         Double max = 100000.0; //    Set To Your Desired Max Value
-         double x = (Math.random() * ((max - min) + 1)) + min; //    This Will Create 
-        // A Random Number Inbetween Your Min And Max.
-         double xrounded = Math.round(x * 100.0) / 100.0; // Creates Answer To 
-         //The Nearest 100 th, You Can Modify This To Change How It Rounds.
-         System.out.println(xrounded); //    This Will Now Print Out The 
-        // Rounded, Random Number.
+		 Double min = 0.0;
+         Double max = 100000.0; 
+         double randomVal = (Math.random() * ((max - min) + 1)) + min;  
+         double xrounded = Math.round(randomVal * 100.0) / 100.0; 
+         logger.info("Appraisal Value : "+xrounded); 
          return xrounded;
 	}
 	

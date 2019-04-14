@@ -1,5 +1,6 @@
 package com.macs.teamtwo.brokerportalapplication.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,8 @@ import com.macs.teamtwo.brokerportalapplication.service.MortgageApplicantService
 @RestController
 public class BrokerMortgageApplicantVerificationController {
 
+	private static final Logger logger = Logger.getLogger(BrokerMortgageApplicantVerificationController.class);
+
 	@Autowired
 	MortgageApplicantService mortgageApplicantService;
 
@@ -18,7 +21,6 @@ public class BrokerMortgageApplicantVerificationController {
 	@GetMapping(value = "/mortgageapplicant/{applicantID}")
 	public MortgageApplicant getApplicationStatus(@PathVariable int applicantID) {
 		MortgageApplicant mort = mortgageApplicantService.getApplicantDetails(applicantID);
-		System.out.println("retruned from here..." + mort);
 		return null;
 
 	}
@@ -26,7 +28,6 @@ public class BrokerMortgageApplicantVerificationController {
 	@GetMapping(value = "/mortgageapplicantstatus/{applicantID}")
 	public MortgageApplicant UpdateBrokerStatus(@PathVariable int applicantID) {
 		MortgageApplicant mort = mortgageApplicantService.UpdateMortgageApplicantStatus(applicantID);
-		System.out.println("returned from Broker... " + mort);
 		return null;
 
 	}

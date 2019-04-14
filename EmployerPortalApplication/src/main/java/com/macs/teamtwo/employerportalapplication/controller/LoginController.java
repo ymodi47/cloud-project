@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.macs.teamtwo.employerportalapplication.EmployerportalApplication;
 import com.macs.teamtwo.employerportalapplication.domain.Employee;
 import com.macs.teamtwo.employerportalapplication.service.EmployeeService;
 
 @Controller
 public class LoginController {
 	
-	private static final Logger logger = Logger.getLogger(EmployerportalApplication.class);
+	private static final Logger logger = Logger.getLogger(LoginController.class);
 
 	@Autowired
 	EmployeeService employeeService;

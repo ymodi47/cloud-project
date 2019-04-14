@@ -24,8 +24,19 @@
 
 <body>
 
+<style>
+    .btn-outline-success {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+</style>
+
 <nav class="navbar navbar-dark bg-primary">
       <a class="navbar-brand" href="/login">Employee Portal</a>
+      <div style="float:right">
+		                     <button class="btn btn-md- btn-outline-success" onclick="javascript:location.href='/logout'">Logout</button> 
+		                    </div>
 </nav>
 
 <div class="container" style="margin-top:40px">
@@ -66,9 +77,6 @@
 		                            </div>
 									</center>
 		                    </form>
-		                    <div>
-		                     <a href="logout" onClick="login.jsp"> Logout</a> <br></br> 
-		                    </div>
 		                    
                      </div>
             </div>
